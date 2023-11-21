@@ -1,0 +1,16 @@
+{% load static %}
+
+{% include 'main/header.html' %}
+
+<main>
+<!-- Write your web page content here -->
+<h1> {% block title %} CallRoute {% endblock %} </h1>
+{% include 'main/body.html' %}
+</main>
+
+{% block footer %} {% include 'main/footer.html' %} {% endblock %}
+{% block scripts %} {% include 'main/scripts.html' %} {% endblock %}
+
+</body>
+
+</html>

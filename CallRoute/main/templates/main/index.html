@@ -1,0 +1,21 @@
+
+{% load static %}
+
+{% include 'main/header.html' %}
+
+<body class="sb-nav-fixed">
+    {% include 'main/navbar-top.html' %}
+        <div id="layoutSidenav">
+            {% include 'main/sidebar.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                <!-- Write your web page content here -->
+                {% include 'main/body.html' %}
+                </main>
+
+{% block footer %} {% include 'main/footer.html' %} {% endblock %}
+{% block scripts %} {% include 'main/scripts.html' %} {% endblock %}
+
+</body>
+
+</html>

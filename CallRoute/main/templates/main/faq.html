@@ -1,0 +1,156 @@
+{% load static %}
+
+{% include 'main/header.html' %}
+
+<body class="sb-nav-fixed">
+    {% include 'main/navbar-top.html' %}
+        <div id="layoutSidenav">
+            {% include 'main/sidebar.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <!-- Write your web page content here -->
+                    <!--Section: FAQ-->
+                    <div class="container-fluid px-4 pt-4">
+                        <h3 class="text-center mb-3 pb-2 text-primary fw-bold">FAQ</h3>
+                        <p class="text-center mb-3">
+                            Find the answers for the most frequently asked questions below
+                        </p>
+
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-4">
+                                <div class="accordion " id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <strong>Для чего этот портал?</strong>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                Extend the boundaries of traditional contact center reporting. With Cisco Unified Intelligence Center, you can create a comprehensive information portal where Contact Center reports and dashboards can be developed and shared throughout your organization.
+                                                Convenience and Flexibility
+                                                <p class="my-1"><strong>Convenience and Flexibility</strong></p>
+                                                Some primary Unified Intelligence Center features include:
+                                                <ul>
+                                                    <li>Comprehensive, real-time and historical reports and dashboards at a glance</li>
+                                                    <li>Flexible presentation options (charts, grids and gauges)</li>
+                                                    <li>One-click access to contact center information using permanent web links (permalinks)</li>
+                                                    <li>Controlled access to reports and dashboards through privileges to authorized users</li>
+                                                    <li>Ability to publish and schedule reports in a variety of formats (xls, pdf, csv)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <strong>Основные возможности</strong>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Accordion Item #3
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 mb-4">
+                                <div class="card shadow-lg border-0 rounded-lg bg-light">
+                                    <div class="card-body">
+                                        <h5 class="text-center font-weight-light my-3">Still have any questions? Contact us to get your answer!</h5>
+                                        <form action="#" method="POST">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text bg-primary" id="UserName">
+                                                    <i class="fas fa-envelope fa-sm fa-fw login-icon"></i>
+                                                </span>
+                                                <input type="text" class="form-control" placeholder="name@example.com" aria-label="email" aria-describedby="UserName" name="email">
+                                            </div>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message" name="message"></textarea>
+                                            <div class="d-grid mt-4 mb-0 mx-auto">
+                                                <button class="btn btn-primary" type="submit" name="send">Send</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="fa-layers fa-fw fa-2x me-3">
+                                                        <i class="fas fa-circle text-primary"></i>
+                                                        <i class="fas fa-male text-white" data-fa-transform="shrink-5"></i>
+                                                    </div>
+                                                    <div class="flex-grow-0 text-muted">
+                                                        Bazyuk Evgeniy
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="fa-layers fa-fw fa-2x me-3">
+                                                        <i class="fas fa-circle text-primary"></i>
+                                                        <i class="fas fa-building text-white" data-fa-transform="shrink-5"></i>
+                                                    </div>
+                                                    <div class="flex-grow-0 text-muted">
+                                                        ПАО "Ростелеком"
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="fa-layers fa-fw fa-2x me-3">
+                                                        <i class="fas fa-circle text-primary"></i>
+                                                        <i class="fas fa-phone text-white" data-fa-transform="shrink-5"></i>
+                                                    </div>
+                                                    <div class="flex-grow-0 text-muted">
+                                                        +7-4742-490202
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="fa-layers fa-fw fa-2x me-3">
+                                                        <i class="fas fa-circle text-primary"></i>
+                                                        <i class="fas fa-envelope text-white" data-fa-transform="shrink-5"></i>
+                                                    </div>
+                                                    <div class="flex-grow-0 text-muted">
+                                                        <a href="mailto:Evgeniy_Bazyuk@center.rt.ru"> Evgeniy_Bazyuk@center.rt.ru </a>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                    <!--Section: FAQ-->
+                </main>
+
+{% include 'main/footer.html' %}
+{% include 'main/scripts.html' %}
+
+</body>
+
+</html>

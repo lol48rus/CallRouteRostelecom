@@ -1,0 +1,201 @@
+<div class="container-fluid px-4">
+    <div class="row pt-4 mx-3 gx-4 d-flex align-items-stretch">
+        <div class="alert alert-warning alert-dismissible fade show text-muted" role="alert">
+            <strong>Приветствую!</strong> Портал <strong>CallRoute</strong> (Маршрутизация вызова) позволяет работать с сущностями Cisco Контакт Центра, осущетсвлять мониторинг нагрузки на площадку, текущей ситуации, предоставляет доступ к отчености, расписанию, Telegram боту.
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="row pt-4 mx-3 gx-4 d-flex align-items-stretch">
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow bg-light-success hoverable index-card-custom rounded border-0">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-success cardname-header-custom fw-bold"><i class="fa-solid fa-chart-column me-1"></i>Dashboard</span>
+                        </div>
+                        <div>
+                            <a href="#" class="stretched-link"></a>
+                            <canvas id="IndexBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow bg-light-warning hoverable index-card-custom rounded border-0">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 cardname-header-custom fw-bold" style="color: #fd7e14;"><i class="fa-solid fa-route me-1"></i>CallRoute</span>
+                            <div>
+                                <a href="#" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="timeline-label">
+                                <div class="timeline-item">
+                                    <div class="timeline-label fw-bolder text-gray-800 fs-6">08:42:21</div>
+                                    <div class="timeline-badge">
+                                        <i class="fa fa-genderless text-purple fs-1"></i>
+                                    </div>
+                                    <div class="timeline-content ps-3">
+                                        <span class="text-muted text-truncate">Router to </span>
+                                        <span class="fw-bold">SG_FirstLine</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-label fw-bolder text-gray-800 fs-6">08:42:29</div>
+                                    <div class="timeline-badge">
+                                        <i class="fa fa-genderless text-danger fs-1"></i>
+                                    </div>
+                                    <div class="timeline-content ps-3">
+                                        <span class="text-muted">Ring to </span>
+                                        <span class="fw-bold">Agent's Extension</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-label fw-bolder text-gray-800 fs-6">08:42:33</div>
+                                    <div class="timeline-badge">
+                                        <i class="fa fa-genderless text-success fs-1"></i>
+                                    </div>
+                                    <div class="timeline-content ps-3">
+                                        <span class="text-muted">Begin </span>
+                                        <span class="fw-bold">Talking</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-label fw-bolder text-gray-800 fs-6">08:45:58</div>
+                                    <div class="timeline-badge">
+                                        <i class="fa fa-genderless text-warning fs-1"></i>
+                                    </div>
+                                    <div class="timeline-content ps-3">
+                                        <span class="fw-bold">Release Call</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow bg-light-primary hoverable index-card-custom rounded border-0">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-primary cardname-header-custom fw-bold"><i class="fa-solid fa-list-ul me-1"></i>ICM Items</span>
+                        </div>
+                        <div>
+                            <a href="#" class="stretched-link"></a>
+                            <ul class="list-group list-group-flush rounded">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-bottom-1 bg-light-primary border-white">
+                                    <div class="d-flex justify-content-start text-primary">
+                                        <span><i class="fa-solid fa-user me-1"></i>Agent</span>
+                                    </div>
+                                    <span class="badge rounded-pill bg-primary">3967</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-bottom-1 bg-light-primary border-white">
+                                    <div class="d-flex justify-content-start text-primary">
+                                        <span><i class="fa-solid fa-user-graduate me-1"></i>Superviser</span>
+                                    </div>
+                                    <span class="badge rounded-pill bg-primary">446</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-bottom-1 bg-light-primary border-white">
+                                    <div class="d-flex justify-content-start text-primary">
+                                        <span><i class="fa-solid fa-users me-1"></i>AgentTeam</span>
+                                    </div>
+                                    <span class="badge rounded-pill bg-primary">318</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-bottom-1 bg-light-primary border-white">
+                                    <div class="d-flex justify-content-start text-primary">
+                                        <span><i class="fa-solid fa-users-viewfinder me-1"></i>SkillGroup</span>
+                                    </div>
+                                    <span class="badge rounded-pill bg-primary">421</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow bg-light-danger hoverable index-card-custom rounded border-0">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-danger cardname-header-custom fw-bold"><i class="fa-solid fa-chart-line me-1"></i>IVR</span>
+                        </div>
+                        <div>
+                            <a href="#" class="stretched-link"></a>
+                            <canvas id="IndexLineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-3">
+        <div>
+            <hr>
+        </div>
+    </div>
+    <div class="row pt-2 mx-3 gx-4">
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow shadow bg-light-info hoverable index-card-custom rounded border-0"  style="height: 8rem;">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-purple cardname-header-custom fw-bold"><i class="fa-brands fa-telegram me-1"></i>Telegram</span>
+                        </div>
+                        <div><a href="#" class="stretched-link"><!-- <img src="./assets/img/dashboard.png" class="img-fluid rounded" alt=""> --></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow shadow bg-light-danger hoverable index-card-custom rounded border-0"  style="height: 8rem;">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-danger cardname-header-custom fw-bold"><i class="fa-solid fa-table me-1"></i>Reports</span>
+                        </div>
+                        <div><a href="#" class="stretched-link"><!-- <img src="./assets/img/dashboard.png" class="img-fluid rounded" alt=""> --></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-3">
+        <div>
+            <hr>
+        </div>
+    </div>
+    <div class="row pt-2 mx-3 gx-4">
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow shadow bg-light-pink hoverable index-card-custom rounded border-0" style="height: 8rem;">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-purple cardname-header-custom fw-bold"><i class="fa-solid fa-screwdriver-wrench me-1"></i>Administration</span>
+                        </div>
+                        <div><a href="#" class="stretched-link"><!-- <img src="./assets/img/dashboard.png" class="img-fluid rounded" alt=""> -->
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+            <div class="card shadow shadow bg-light-primary hoverable index-card-custom rounded border-0" style="height: 8rem;">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="pb-3">
+                            <span class="h5 text-primary cardname-header-custom fw-bold"><i class="fa-solid fa-calendar-days me-1"></i></i>Schedule</span>
+                        </div>
+                        <div><a href="#" class="stretched-link"><!-- <img src="./assets/img/dashboard.png" class="img-fluid rounded" alt=""> --></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

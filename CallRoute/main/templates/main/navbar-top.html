@@ -1,0 +1,43 @@
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-white shadow-sm">
+
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3 text-primary h2" href="/"><i class="fa-solid fa-route me-1" style="color: #FF4F12"></i>CallRoute<sup class="ms-1" style="color: #7800FF">RT-2023</sup></a>
+
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars fa-xl"></i></button>
+
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+
+        <!-- Navbar News-->
+        <a class="btn btn-secondary btn-sm position-relative" href="/news/">
+            News
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            3+
+            <span class="visually-hidden">unread messages</span>
+            </span>
+        </a>
+
+        <!-- Navbar Profile-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/profile/"><i class="fas fa-user fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Profile</span></a></li>
+                    <li><a class="dropdown-item" href="#!"><i class="fas fa-list fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Activity Log</span></a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                        <form action="" method="POST">
+                            <button type="submit" name="logout_btn" class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Logout</span></button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>

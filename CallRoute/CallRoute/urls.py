@@ -23,5 +23,16 @@ import main.views as main_views
 handler404 = main_views.custom_404
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', include('main.urls')),
+    path('news/', include('news.urls')),
+    path('users/', include('users.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #чтобы работали медиа файлы
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns=[
+        path('__debug/__', include(debug_toolbar.urls)),
+    ] + urlpatterns
+
+    urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #чтобф работали статические файлы

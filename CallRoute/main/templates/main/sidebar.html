@@ -3,11 +3,11 @@
         <div class="sb-sidenav-menu"> <!-- overflow-hidden -->
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/dashboard/" {% if request.path == '/dashboard/' %} class="link-active" aria-current="page" {% endif %}>
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link link-active" href="#">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-route"></i></div>
                     Call Route
                 </a>
@@ -40,7 +40,7 @@
                 <hr class="sidebar-divider mb-1">
 
                 <div class="sb-sidenav-menu-heading">Tables</div>
-                <a class="nav-link" href="#">
+                <a class="nav-link {% if request.path == '/reports/' %} link-active {% endif %}"  href="/reports/" >
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Reports
                 </a>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <a href="/faq/" class="btn btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-delay-show="8000" title="Check out FAQ">
+            <a href="/faq/" class="btn btn-primary w-100 " data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-delay-show="8000" title="Check out FAQ">
                 <span class="btn-label">FAQ</span>
                 <i class="fa-solid fa-circle-question"></i>
             </a>

@@ -1,0 +1,101 @@
+{% load static %}
+
+{% include 'main/header.html' %}
+<body class="sb-nav-fixed">
+    {% include 'main/navbar-top.html' %}
+        <div id="layoutSidenav">
+            {% include 'main/sidebar.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <!-- Write your web page content here -->
+
+                    <div class="container-fluid px-4">
+                    <h1> News из отдельного приложения </h1>
+                        <div class="row rounded shadow-sm my-3" style="background-color: #f8f9fc;">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end my-2 me-3">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <select class="form-select" name="author_filter">
+                                                        <option value="0">All authors</option>
+                                                        {% for author in author_list %}
+                                                            <option value="{{ author.id }}"{% if selected == author.id %} selected {% endif %} >{{ author }}</option>
+                                                        {% endfor %}
+                                                    </select>
+    <!--                                                 <button type="submit" name="" class="btn btn-light-primary btn-sm float-end border"> -->
+    <!--                                                     <i class="fa-solid fa-plus me-1"></i>Add news -->
+    <!--                                                 </button> -->
+                                                    <button type="submit" class="btn btn-light-primary"><i class="fas fa-filter fa-fw "></i>Filter</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+<!--                                     <form action="" method="POST"> -->
+<!--                                         {% csrf_token %} -->
+<!--                                         <div class="row align-items-center"> -->
+<!--                                             <div class="col"> -->
+<!--                                                 <button type="submit" name="" class="btn btn-light-primary btn-sm float-end border"> -->
+<!--                                                     <i class="fa-solid fa-plus me-1"></i>Add news -->
+<!--                                                 </button> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-4 mx-3 gx-4 d-flex align-items-stretch">
+                            {% for n in news %}
+                            <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+                                <div class="card shadow hoverable index-card-custom rounded border-1 border-left-{{n.state}}">
+                                    <div class="card-header">
+                                        <span class="text-{{n.state}} fw-bold"><i class="fa-solid fa-newspaper me-1"></i>{{ n.title }}</span>
+                                    </div>
+                                    <div class="card-body text-muted">
+                                        <div class="d-flex flex-column">
+                                            <!-- <div class="pb-3"> -->
+                                                <p>{{ n.text }}</p>
+                                                <a href="/news/{{ forloop.counter }}" class="stretched-link"></a>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="card-footer small text-muted text-end">
+                                        <span>Updated {{ n.date }} by <strong> {{ n.author }} </strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row pt-4 mx-3 gx-4 d-flex align-items-stretch">
+                            {% for article in articles %}
+                            <div class="col-lg-3 col-md-6 pb-md-3 pb-sm-4">
+                                <div class="card shadow hoverable index-card-custom rounded border-1 border-left-primary">
+                                    <div class="card-header">
+                                        <span class="text-{{n.state}} fw-bold"><i class="fa-solid fa-newspaper me-1"></i>{{ article.title }}</span>
+                                    </div>
+                                    <div class="card-body text-muted">
+                                        <div class="d-flex flex-column">
+                                            <!-- <div class="pb-3"> -->
+                                                <p>{{ article.anouncement }}</p>
+                                                <a href="/news/{{ article.get_absolute_url }}" class="stretched-link"></a>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="card-footer small text-muted text-end">
+                                        <span>Updated by <strong>{{ article.author }}</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </main>
+
+{% include 'main/footer.html' %}
+{% include 'main/scripts.html' %}
+
+</body>
+
+</html>

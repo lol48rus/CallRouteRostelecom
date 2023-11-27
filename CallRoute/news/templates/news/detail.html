@@ -1,0 +1,37 @@
+{% load static %}
+
+{% include 'main/header.html' %}
+<body class="sb-nav-fixed">
+    {% include 'main/navbar-top.html' %}
+        <div id="layoutSidenav">
+            {% include 'main/sidebar.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                <!-- Write your web page content here -->
+                <div class="container">
+                    <div class="d-flex flex-column align-items-center pt-4"> <!-- justify-content-center vh-100 -->
+                        <div class="card shadow index-card-custom rounded border-1 border-left-primary w-75">
+                            <div class="card-header">
+                                <span class="text-primary fw-bold"><i class="fa-solid fa-newspaper me-1"></i>{{ article.title }}</span>
+                            </div>
+                            <div class="card-body text-muted">
+                                <div class="d-flex flex-column">
+                                    <!-- <div class="pb-3"> -->
+                                        <p>{{ article.text }}</p>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <div class="card-footer small text-muted text-end">
+                                <span>Updated <strong>{{ article.shortdatestr}}</strong> by <strong> {{ article.author }} </strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </main>
+
+{% include 'main/footer.html' %}
+{% include 'main/scripts.html' %}
+
+</body>
+
+</html>

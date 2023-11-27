@@ -11506,6 +11506,7 @@ body {
     color: rgba(255, 255, 255, .8)
 }
 
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
     /* color: rgba(255, 255, 255, 0.25); */
     color: rgba(255, 255, 255, 0.5);
@@ -12033,4 +12034,8 @@ body {
     position: relative;
     line-height: 1;
     width: 12.5rem
+}
+
+.link-active{
+    color: #ffffff;
 }

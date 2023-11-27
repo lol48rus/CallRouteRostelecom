@@ -20,19 +20,8 @@ from django.urls import path
 
 from . import views
 urlpatterns = [
-    path('', views.index, name='home'),
-    path('login/', views.login, name='login'),
-    path('register/', views.register, name='register'),
-    path('profile/', views.profile, name='profile'),
-    #path('news/', views.news, name='news'),
-    path('faq/', views.faq, name='faq'),
-    path('reports/', views.reports, name='reports'),
-
-    path('news/<int:a>/details', views.get_news), #динамические сраницы
-    path('index_test/', views.index_test, name='index_test'), #тестовая страница
-
-    #пустая страница-заготовка
-    path('blank/', views.blank, name='blank')
+    path('show', views.news, name='news_index'),
+    path('show/<int:id>/', views.detail, name='news_detail'),
 ]
 
 

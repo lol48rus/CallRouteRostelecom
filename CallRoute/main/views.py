@@ -73,6 +73,14 @@ def faq(request):
 
     return render(request, 'main/faq.html')
 
+def reports(request):
+    title = 'Reports'
+
+    context = {'title': title
+               }
+
+    return render(request, 'main/reports.html')
+
 def custom_404(request, exception):
     #return render(request, 'main/404.html')
     return HttpResponse(f'404 ошибка:{exception}' )

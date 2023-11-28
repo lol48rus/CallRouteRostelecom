@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from .models import News
+from .forms import *
 
 def index(request):
     title = 'Главная страница'
@@ -66,12 +67,16 @@ def get_news(request,a):
     return HttpResponse(f'Вы ввели: {a}')
 
 def faq(request):
+
+    form = ContactForm()
+
     title = 'FAQ'
 
-    context = {'title': title
+    context = {'title': title,
+               'form': form
                }
 
-    return render(request, 'main/faq.html')
+    return render(request, 'main/faq.html', context)
 
 def reports(request):
     title = 'Reports'

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
 # Create your models here.
 
 class News:
@@ -49,6 +50,8 @@ class Article(models.Model):
     category = models.CharField(choices=categories, max_length=20, verbose_name='Категории')
     tags = models.ManyToManyField(to=Tag, blank=True)
 
+    slug = models.SlugField()
+
     #Использование менеджера моделей
     objects = models.Manager()
     published = PublishedToday()
@@ -74,5 +77,20 @@ class Article(models.Model):
         ordering = ['title', 'date']  #сортировка
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+class Image(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(upload_to='article_images/')
+
+    def __str__(self):
+        return self.title
+
+    def image_tag(self):
+        #mark-safe - рендерит код на странице. помечает его безопасным для рендеринга
+        if self.image is not None:
+            return mark_safe(f'<img src="{self.image.url}" height="50px" width="auto" />')
+        else:
+            return '(no image)'
 
 

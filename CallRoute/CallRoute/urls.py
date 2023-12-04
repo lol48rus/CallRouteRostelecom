@@ -36,4 +36,8 @@ if settings.DEBUG:
     ] + urlpatterns
 
     urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #чтобф работали статические файлы
+#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #чтобы работали статические файлы
+
+#Измеяем название панели администратор
+admin.site.site_header = "Панель администрирования CallRoute"
+admin.site.index_title = "Администрирование CallRoute"

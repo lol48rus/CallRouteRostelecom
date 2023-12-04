@@ -1,9 +1,30 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, reverse
+from django.urls import reverse_lazy
 from .models import *
 from django.db import connection, reset_queries
+#Дженерик
+from django.views.generic import DetailView, DeleteView, UpdateView
 from .forms import *
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+#generic класс
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'news/generic_detail.html'
+    context_object_name = 'article'
+
+#generic класс
+class ArticleUpdateView(UpdateView):
+    model = Article
+    template_name = 'news/create_news.html'
+    fields = ['title', 'anouncement', 'text', 'tags']
+
+# generic класс
+class ArticleDeleteView(DeleteView):
+    model = Article
+    success_url = reverse_lazy('news_index')
+    template_name = 'news/delete_news.html'
 
 def news(request):
 

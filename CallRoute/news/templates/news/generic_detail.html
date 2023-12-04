@@ -9,6 +9,7 @@
                 <main>
                     <!-- Write your web page content here -->
                     <div class="container">
+                        <h1> News Generic </h1>
                         <div class="d-flex flex-column align-items-center pt-4"> <!-- justify-content-center vh-100 -->
                             <div class="card shadow index-card-custom rounded border-1 border-left-primary w-75">
                                 <div class="card-header">
@@ -16,14 +17,17 @@
                                 </div>
                                 <div class="card-body text-muted">
                                     <div class="d-flex flex-column">
-                                        <!-- <div class="pb-3"> -->
-                                            <p>{{ article.text }}</p>
-                                        <!-- </div> -->
+                                        <p>{{ article.text }}</p>
+                                        <br>
+                                        <p>Tags: {% for t in article.tags.all %} {{ t.title }} {% endfor %}</p>
                                     </div>
                                 </div>
                                 <div class="card-footer small text-muted text-end">
                                     <span>Updated <strong>{{ article.shortdatestr}}</strong> by <strong> {{ article.author }} </strong></span>
+                                    <a class="btn btn-danger" href="{% url 'news_delete' article.pk %}">Удалить</a>
+                                    <a class="btn btn-warning" href="{% url 'news_update' article.pk %}">Редактировать</a>
                                 </div>
+
                             </div>
                         </div>
                     </div>

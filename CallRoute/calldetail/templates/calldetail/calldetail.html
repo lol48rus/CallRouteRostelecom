@@ -9,7 +9,7 @@
                 <main>
                     <!-- Write your web page content here -->
                     <div class="container-fluid px-4">
-                    <h1> CallDetail из отдельного приложения </h1>
+                        <h1> CallDetail из отдельного приложения </h1>
                         <div class="row rounded shadow-sm my-3" style="background-color: #f8f9fc;">
                             <div class="col-12">
                                 <div class="d-flex justify-content-end my-2 me-3">
@@ -33,7 +33,6 @@
                                                 <div class="input-group ">
                                                     <span class="input-group-text bg-primary" id="inputANIHelp">
                                                         <i class="bi bi-telephone-forward text-white"></i>
-<!--                                                         <i class="fa-solid fa-phone text-white"></i> -->
                                                     </span>
                                                     <input type="text" class="form-control" placeholder="ANI" id="inputANI" name="CRT_ANI" aria-describedby="inputANIHelp" value="" required>
                                                 </div>
@@ -243,153 +242,120 @@
                     <div class="card">
                         <h1 class="text-center">Abonent's Info</h1>
                       <div class="card-body">
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Survey</li>
-                            <li class="list-group-item"></li>
-                            <li class="list-group-item">Survey this week</li>
-                            <li class="list-group-item">Survey this month</li>
-                          </ul>
+
                        </div>
                     </div>
                     <br>
                     <div class="card">
                         <h1 class="text-center">Agent's Info</h1>
                         <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="text-muted"><i class="fa-solid fa-headset me-1"></i>Ivanov Ivan</h5>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="text-primary">Calls</h5>
-                            </div>
-                            <span class="text-danger me-2"><i class="fa-solid fa-phone-slash"></i></span>
-                            <span class="badge rounded-pill bg-secondary">4</span>
-                            <span class="badge rounded-pill bg-primary">3</span>
-                            <span class="badge rounded-pill bg-danger">1</span>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="text-primary">Raiting</h5>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="review-stat">Today's</h5>
-                                <div class="small-ratings">
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa-regular fa-star rating-color"></i>
-                                    <i class="fa-regular fa-star rating-color"></i>
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-grow-1 align-self-center bd-highlight">
+                                    <h5 class="text-muted"><i class="fa-solid fa-headset me-1"></i>Ivanov Ivan</h5>
+                                </div>
+                                <div class="p-2 bd-highlight">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center me-2">
+                                                    <i class="fa-solid fa-clock me-2 text-secondary"></i>
+                                                    <div class="d-none d-xl-block text-muted fw-bold">Last hour:</div>
+                                                </div>
+                                                <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa-regular fa-star rating-color"></i>
+                                                    <i class="fa-regular fa-star rating-color"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa-solid fa-calendar-day me-2 text-secondary"></i>
+                                                    <div class="d-none d-xl-block text-muted fw-bold">Daily:</div>
+                                                </div>
+                                                <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa-regular fa-star rating-color"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa-solid fa-calendar-week me-2 text-secondary"></i>
+                                                    <div class="d-none d-xl-block text-muted fw-bold">Week:</div>
+                                                </div>
+                                                <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                    <i class="fa fa-star rating-color"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="review-stat">This week</h5>
-                                <div class="small-ratings">
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa-regular fa-star rating-color"></i>
+<!--                             <h2 class="pt-2 border-top">Calls</h2> -->
+                            <br>
+                            <ul class="nav nav-pills justify-content-end mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active btn-sm" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Last Hour</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                <button class="nav-link btn-sm" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Daily</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                <button class="nav-link btn-sm" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Week</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    <div class="d-flex">
+                                        <div class="flex-fill text-center border-bottom">
+                                            <i class="bi bi-telephone-inbound-fill text-success"></i>
+                                            <div class="d-none d-xl-block">Handled</div>
+                                        </div>
+                                        <div class="flex-fill text-center border-bottom">
+                                            <i class="bi bi-telephone-x-fill text-warning"></i>
+                                            <div class="d-none d-xl-block">Missed</div>
+                                        </div>
+                                        <div class="flex-fill text-center border-bottom">
+                                            <i class="fa-solid fa-phone-slash text-danger"></i>
+                                            <div class="d-none d-xl-block">Abandon</div>
+                                        </div>
+                                        <div class="flex-fill text-center border-bottom">
+                                            <i class="bi bi-telephone-outbound-fill text-secondary"></i>
+                                            <div class="d-none d-xl-block">Transfered</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="flex-fill text-center">
+                                            <span class="badge rounded-pill bg-success">4</span>
+                                        </div>
+                                        <div class="flex-fill text-center">
+                                            <span class="badge rounded-pill bg-warning">1</span>
+                                        </div>
+                                        <div class="flex-fill text-center">
+                                            <span class="badge rounded-pill bg-danger">0</span>
+                                        </div>
+                                        <div class="flex-fill text-center">
+                                            <span class="badge rounded-pill bg-secondary">1</span>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">tabpane2</div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">tabpane3</div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="review-stat">This month</h5>
-                                <div class="small-ratings">
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                    <i class="fa fa-star rating-color"></i>
-                                </div>
-                            </div>
-                          <!-- <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Today's</li>
-                            <li class="list-group-item">This week</li>
-                            <li class="list-group-item">This month</li>
-                          </ul> -->
                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="height-100 container d-flex justify-content-center align-items-center">
-
-                <div class="card p-3">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h5 class="review-count">12 Reviews</h5>
-                    </div>
-
-
-                    <div class="mt-5 d-flex justify-content-between align-items-center">
-                        <h5 class="review-stat">Cleanliness</h5>
-                        <div class="small-ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                        <h5 class="review-stat">Approachability of SLT</h5>
-                        <div class="small-ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-
-
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                        <h5 class="review-stat">Front Office</h5>
-                        <div class="small-ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-
-
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                        <h5 class="review-stat">CPD</h5>
-                        <div class="small-ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                        </div>
-                    </div>
-
-
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                        <h5 class="review-stat">Pastrol</h5>
-                        <div class="small-ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                        <h5 class="review-stat">Office Space</h5>
-                        <div class="small-ratings">
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star rating-color"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
                     </div>
                 </div>
             </div>

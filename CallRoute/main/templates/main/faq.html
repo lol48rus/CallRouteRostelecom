@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% include 'main/header.html' %}
 
@@ -159,10 +160,17 @@
                                         </form> -->
                                         <form method="POST">
                                             {% csrf_token %}
-                                            <!--   {{ form.as_p }}  --><!-- #методы: as_table, as_p, as_ul, as_div  -->
-                                            {{ form.name }}
+
+                                            <!--Вывод целой формы #методы: as_table, as_p, as_ul, as_div  -->
+                                            <!--   {{ form.as_p }}  -->
+
+                                            <!--Вывод отдельных полей формы  -->
+                                            <!-- {{ form.name }}
                                             <div>{{ form.email }}</div>
-                                            {{ form.message }}
+                                            {{ form.message }} -->
+
+                                            {{ form|crispy }}
+
                                             <input type="submit" class="btn btn-success" value="Send">
                                         </form>
                                     </div>

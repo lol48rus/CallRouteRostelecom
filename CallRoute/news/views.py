@@ -1,6 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 from django.db import connection, reset_queries
+from .forms import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def news(request):
@@ -83,3 +85,27 @@ def detail(request,id):
                }
     return render(request, 'news/detail.html', context)
 
+#только залогиненные пользователи. Редирект на главную страницу
+@login_required(login_url="/")
+def create_article(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            current_user = request.user
+            if current_user != None: #проверка, что юзер не аноним
+                new_article = form.save(commit=False) #чтобы не записывалась сразу в БД
+                new_article.author = current_user
+                new_article.save() #сохраняем в БД
+                print(new_article.id)
+                try:
+                    form.save_m2m() #чтобы теги сохранились
+                except:
+                    #Удаляем созданную новость
+                    print('Новость удалена')
+
+                return redirect('news_index') #Перенаправляем на страницу новостей
+                #form.save()
+    else:
+        form = ArticleForm() #пустая форма
+
+    return render(request, 'news/create_news.html', {'form': form})

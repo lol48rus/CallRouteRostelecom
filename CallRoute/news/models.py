@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class News:
-    def __init__(self,title,text,state,date,author):
+    def __init__(self, title, text, state, date, author):
         self.title = title
         self.text = text
         self.state = state

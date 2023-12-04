@@ -63,12 +63,28 @@ def news(request):
 
     return render(request, 'main/news.html', context)
 
-def get_news(request,a):
+def get_news(request, a):
     return HttpResponse(f'Вы ввели: {a}')
 
 def faq(request):
 
-    form = ContactForm()
+    if request.method == 'POST':
+        print ('Получили post-запрос')
+        # print(request.POST)
+        form = ContactForm(request.POST)
+        # form.name = request.POST['name']
+        if form.is_valid():
+            print('Сообщение отправлено', form.cleaned_data) #очищенные данные после проверки
+        else:
+            print(form.errors)
+
+        # name = request.POST.get('name')
+        # email = request.POST.get('email')
+        # message = request.POST.get('message')
+    else:
+        print('Получили get-запрос')
+        form = ContactForm()
+        # form.name='Любимый клиент'
 
     title = 'FAQ'
 

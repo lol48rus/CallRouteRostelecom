@@ -10,7 +10,7 @@
                     <!-- Write your web page content here -->
 
                     <div class="container-fluid px-4">
-                    <h1> News из отдельного приложения </h1>
+                        <h1> News из отдельного приложения </h1>
                         <div class="row rounded shadow-sm my-3" style="background-color: #f8f9fc;">
                             <div class="col-12">
                                 <div class="d-flex justify-content-end my-2 me-3">
@@ -25,100 +25,140 @@
                                                             <option value="{{ author.id }}"{% if selected == author.id %} selected {% endif %} >{{ author }}</option>
                                                         {% endfor %}
                                                     </select>
-    <!--                                                 <button type="submit" name="" class="btn btn-light-primary btn-sm float-end border"> -->
-    <!--                                                     <i class="fa-solid fa-plus me-1"></i>Add news -->
-    <!--                                                 </button> -->
                                                     <button type="submit" class="btn btn-light-primary"><i class="fas fa-filter fa-fw "></i>Filter</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
-<!--                                     <form action="" method="POST"> -->
-<!--                                         {% csrf_token %} -->
-<!--                                         <div class="row align-items-center"> -->
-<!--                                             <div class="col"> -->
-<!--                                                 <button type="submit" name="" class="btn btn-light-primary btn-sm float-end border"> -->
-<!--                                                     <i class="fa-solid fa-plus me-1"></i>Add news -->
-<!--                                                 </button> -->
-<!--                                             </div> -->
-<!--                                         </div> -->
-                                    </form>
                                 </div>
                             </div>
                         </div>
-
                         <div class="container px-4 py-5" id="custom-cards">
                             <h2 class="pb-2 border-bottom">Custom cards</h2>
-
                             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-                              <div class="col">
-                                <div class="card card-cover h-100 overflow-hidden text-white bg-light-success rounded-5 shadow-lg">
-                                     <div class="card-header border-0">
-                                        <h4 class="lh-1 fw-bold"></h4>
+                                <div class="col">
+                                    <div class="card card-cover h-100 overflow-hidden text-white bg-light-success rounded-5 shadow-lg">
+                                        <div class="card-header border-0 bg-light-success d-flex justify-content-between">
+                                        <h5 class="text-muted">#global</h5>
+                                            <div class="d-flex justify-content-between gap-4">
+                                                <!-- <div class="dropdown">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#">Link 1</a></li>
+                                                    <li><a class="dropdown-item" href="#">Link 2</a></li>
+                                                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                                                    </ul>
+                                                </div> -->
+                                                <div class="dropdown no-arrow">
+                                                    <a class="dropdown-toggle text-success" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in bg-light" aria-labelledby="dropdownMenuLink">
+
+                                                          <a class="dropdown-item text-muted" href="#"><i class="fas fa-pen mx-2"></i>Edit</a>
+                                                          <a class="dropdown-item text-muted" href="#"><i class="fas fa-trash mx-2"></i>Delete</a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown ms-auto text-success">
+                                                    <i class="fas fa-ellipsis-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                                    <ul class="dropdown-menu">
+                                                      <li>
+                                                        <span class="dropdown-item">
+                                                          <i class="fas fa-pen mx-2"></i> Update
+                                                        </span>
+                                                      </li>
+                                                      <li>
+                                                        <span class="dropdown-item">
+                                                            <i class="fas fa-trash mx-2"></i> Delete
+                                                        </span>
+                                                      </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-success text-shadow-1">
+                                            <h3 class="pt-3 mt-5 mb-4 display-6 lh-1 fw-bold">Report "SkillGroup Values" was update to v.1.1</h3>
+                                            <ul class="d-flex list-unstyled mt-auto">
+                                                <li class="me-auto">
+                                                    <i class="fas fa-table fa-2xl"></i>
+                                                </li>
+                                                <li class="d-flex align-items-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small>Admin</small>
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small>3days</small>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                  <div class="d-flex flex-column h-100 p-5 pb-3 text-success text-shadow-1">
-                                    <h3 class="pt-3 mt-5 mb-4 display-6 lh-1 fw-bold">Report "SkillGroup Values" was update to v.1.1</h3>
-                                    <ul class="d-flex list-unstyled mt-auto">
-                                      <li class="me-auto">
-<!--                                         <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white"> -->
-                                        <i class="fas fa-table fa-2xl"></i>
-                                      </li>
-                                      <li class="d-flex align-items-center me-3">
-                                        <i class="fas fa-user fa-fw me-1"></i>
-                                        <small>Admin</small>
-                                      </li>
-                                      <li class="d-flex align-items-center">
-                                        <i class="fas fa-calendar-day fa-fw me-1"></i>
-                                        <small>3days</small>
-                                      </li>
-                                    </ul>
-                                  </div>
                                 </div>
-                              </div>
-
-                              <div class="col">
-                                <div class="card card-cover h-100 overflow-hidden text-white bg-light-danger rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
-                                  <div class="d-flex flex-column h-100 p-5 pb-3 text-danger text-shadow-1">
-                                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-                                    <ul class="d-flex list-unstyled mt-auto">
-                                      <li class="me-auto">
-                                        <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                      </li>
-                                      <li class="d-flex align-items-center me-3">
-                                        <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                        <small>Pakistan</small>
-                                      </li>
-                                      <li class="d-flex align-items-center">
-                                        <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                        <small>4d</small>
-                                      </li>
-                                    </ul>
-                                  </div>
+                                <div class="col">
+                                    <div class="card card-cover h-100 overflow-hidden text-white bg-light-danger rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-danger text-shadow-1">
+                                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
+                                            <ul class="d-flex list-unstyled mt-auto">
+                                                <li class="me-auto">
+                                                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                                                </li>
+                                                <li class="d-flex align-items-center me-3">
+                                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                                                    <small>Pakistan</small>
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                                                    <small>4d</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-
-                              <div class="col">
-                                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
-                                  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                                    <ul class="d-flex list-unstyled mt-auto">
-                                      <li class="me-auto">
-                                        <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                                      </li>
-                                      <li class="d-flex align-items-center me-3">
-                                        <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                                        <small>California</small>
-                                      </li>
-                                      <li class="d-flex align-items-center">
-                                        <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                        <small>5d</small>
-                                      </li>
-                                    </ul>
-                                  </div>
+                                <div class="col">
+                                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
+                                            <ul class="d-flex list-unstyled mt-auto">
+                                                <li class="me-auto">
+                                                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                                                </li>
+                                                <li class="d-flex align-items-center me-3">
+                                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                                                    <small>California</small>
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                                                    <small>5d</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
+                                <div class="col">
+                                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+                                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
+                                            <ul class="d-flex list-unstyled mt-auto">
+                                                <li class="me-auto">
+                                                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                                                </li>
+                                                <li class="d-flex align-items-center me-3">
+                                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                                                    <small>California</small>
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                                                    <small>5d</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
+                        </div>
 
 
                         <div class="row pt-4 mx-3 gx-4 d-flex align-items-stretch">

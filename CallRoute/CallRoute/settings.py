@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'news',
     'users',
     'calldetail',
-    'debug_toolbar'
+    'debug_toolbar',
+    'crispy_forms',
+    'crispy_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,6 @@ print(MEDIA_ROOT)
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_ALLOWED_TEMPLATES_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'news',
     'users',
     'calldetail',
+    'icmitems',
     'debug_toolbar',
     'crispy_forms',
     'crispy_bootstrap5'

@@ -7,7 +7,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link link-active" href="/calldetail/">
+                <a class="nav-link link-active" href="{% url 'calldetail_index' %}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-route"></i></div>
                     Call Route
                 </a>
@@ -15,7 +15,7 @@
                 <hr class="sidebar-divider mb-1">
 
                 <div class="sb-sidenav-menu-heading">Interface</div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseItems" aria-expanded="false" aria-controls="collapseItems">
+                <a class="nav-link collapsed" href="{% url 'icmitems_index' %}" data-bs-toggle="collapse" data-bs-target="#collapseItems" aria-expanded="false" aria-controls="collapseItems">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     ICM Items
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -26,7 +26,7 @@
                         <a class="nav-link" href="#">Superviser</a>
                         <a class="nav-link" href="#">AgentTeam</a>
                         <a class="nav-link" href="#">SkillGroup</a>
-                        <a class="nav-link" href="#" title="Очередь приоритетов">Queue priority</a>
+                        <a class="nav-link" href="#" title="Очередь приоритетов">QueuePriority</a>
                         <a class="nav-link" href="#">CallType</a>
                     </nav>
                 </div>
@@ -55,8 +55,7 @@
                 </a>
                 <div class="collapse" id="collapseAdminPanel" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Users</a>
-                        <!-- <a class="nav-link" href="settings.php">Settings</a> -->
+                        <a class="nav-link" href="/users/">Users</a>
                         <a class="nav-link" href="#">Telegram</a>
                     </nav>
                 </div>

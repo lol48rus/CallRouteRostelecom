@@ -26,7 +26,8 @@ urlpatterns = [
     path('', include('main.urls')),
     path('news/', include('news.urls')),
     path('users/', include('users.urls')),
-    path('calldetail/', include('calldetail.urls'))
+    path('calldetail/', include('calldetail.urls')),
+    path('icmitems/', include('icmitems.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #чтобы работали медиа файлы
 
 if settings.DEBUG:

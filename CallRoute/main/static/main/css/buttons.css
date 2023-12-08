@@ -633,3 +633,79 @@
 .btn-check:active+.btn.btn-active-text-white,.btn-check:checked+.btn.btn-active-text-white,.btn.btn-active-text-white.active,.btn.btn-active-text-white.show,.btn.btn-active-text-white:active:not(.btn-active),.btn.btn-active-text-white:focus:not(.btn-active),.btn.btn-active-text-white:hover:not(.btn-active),.show>.btn.btn-active-text-white{
     color:#fff
 }
+
+/*Not working*/
+.menu-sub-dropdown{
+    display:none;
+    border-radius:.475rem;
+    background-color: #ffffff;
+    box-shadow:0 0 50px 0 rgba(82,63,105,.15);
+    z-index:105
+}
+/*Not working*/
+
+.btn.btn-custom-primary {
+    color: #fff;
+    border-color: #009ef7;
+    background-color: #009ef7
+}
+
+.btn.btn-custom-primary i {
+    color: #fff
+}
+
+.btn.btn-custom-primary .svg-icon svg [fill]:not(.permanent):not(g) {
+    transition: fill .3s ease;
+    fill: #fff
+}
+
+.btn.btn-custom-primary .svg-icon svg:hover [fill]:not(.permanent):not(g) {
+    transition: fill .3s ease
+}
+
+.btn.btn-custom-primary.dropdown-toggle:after {
+    color: #fff
+}
+
+.btn-check:active+.btn.btn-custom-primary,.btn-check:checked+.btn.btn-custom-primary,.btn.btn-custom-primary.active,.btn.btn-custom-primary.show,.btn.btn-custom-primary:active:not(.btn-active),.btn.btn-custom-primary:focus:not(.btn-active),.btn.btn-custom-primary:hover:not(.btn-active),.show>.btn.btn-custom-primary {
+    color: #fff;
+    border-color: #0095e8;
+    background-color: #0095e8!important
+}
+
+.btn-check:active+.btn.btn-custom-primary i,.btn-check:checked+.btn.btn-custom-primary i,.btn.btn-custom-primary.active i,.btn.btn-custom-primary.show i,.btn.btn-custom-primary:active:not(.btn-active) i,.btn.btn-custom-primary:focus:not(.btn-active) i,.btn.btn-custom-primary:hover:not(.btn-active) i,.show>.btn.btn-custom-primary i {
+    color: #fff
+}
+
+.btn-check:active+.btn.btn-custom-primary .svg-icon svg [fill]:not(.permanent):not(g),.btn-check:checked+.btn.btn-custom-primary .svg-icon svg [fill]:not(.permanent):not(g),.btn.btn-custom-primary.active .svg-icon svg [fill]:not(.permanent):not(g),.btn.btn-custom-primary.show .svg-icon svg [fill]:not(.permanent):not(g),.btn.btn-custom-primary:active:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),.btn.btn-custom-primary:focus:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),.btn.btn-custom-primary:hover:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),.show>.btn.btn-custom-primary .svg-icon svg [fill]:not(.permanent):not(g) {
+    transition: fill .3s ease;
+    fill: #fff
+}
+
+.btn-check:active+.btn.btn-custom-primary .svg-icon svg:hover [fill]:not(.permanent):not(g),.btn-check:checked+.btn.btn-custom-primary .svg-icon svg:hover [fill]:not(.permanent):not(g),.btn.btn-custom-primary.active .svg-icon svg:hover [fill]:not(.permanent):not(g),.btn.btn-custom-primary.show .svg-icon svg:hover [fill]:not(.permanent):not(g),.btn.btn-custom-primary:active:not(.btn-active) .svg-icon svg:hover [fill]:not(.permanent):not(g),.btn.btn-custom-primary:focus:not(.btn-active) .svg-icon svg:hover [fill]:not(.permanent):not(g),.btn.btn-custom-primary:hover:not(.btn-active) .svg-icon svg:hover [fill]:not(.permanent):not(g),.show>.btn.btn-custom-primary .svg-icon svg:hover [fill]:not(.permanent):not(g) {
+    transition: fill .3s ease
+}
+
+.btn-check:active+.btn.btn-custom-primary.dropdown-toggle:after,.btn-check:checked+.btn.btn-custom-primary.dropdown-toggle:after,.btn.btn-custom-primary.active.dropdown-toggle:after,.btn.btn-custom-primary.show.dropdown-toggle:after,.btn.btn-custom-primary:active:not(.btn-active).dropdown-toggle:after,.btn.btn-custom-primary:focus:not(.btn-active).dropdown-toggle:after,.btn.btn-custom-primary:hover:not(.btn-active).dropdown-toggle:after,.show>.btn.btn-custom-primary.dropdown-toggle:after {
+    color: #fff
+}
+
+.text-custom-info {
+    color: #7239ea!important;
+}
+
+.text-custom-success {
+    color: #50cd89!important;
+}
+
+.text-custom-danger {
+    color: #f1416c !important;
+}
+
+.text-custom-primary {
+    color: #009ef7!important;
+}
+
+.fa-custom-lg{
+    font-size: 1.0em;
+}

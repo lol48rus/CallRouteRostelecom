@@ -7,6 +7,7 @@ from django.views.generic import DetailView, DeleteView, UpdateView
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.contrib import messages
 # Create your views here.
 
 #generic класс
@@ -25,8 +26,10 @@ class ArticleDetailView(DetailView):
 #generic класс
 class ArticleUpdateView(UpdateView):
     model = Article
-    template_name = 'news/create_news.html'
-    fields = ['title', 'anouncement', 'text', 'tags']
+    success_url = reverse_lazy('news_index')
+    template_name = 'news/update_article.html'
+    fields = ['title', 'anouncement', 'text', 'tags', 'category']
+
 
 # generic класс
 class ArticleDeleteView(DeleteView):
@@ -42,7 +45,7 @@ def news(request):
     formArticle = ArticleForm()  # пустая форма
 
     #пример применения пользовательского менеджера
-    today_articles = Article.published.all()
+    # today_articles = Article.published.all()
 
     # title = 'Новости'
     #
@@ -75,7 +78,7 @@ def news(request):
     #            }
 
     #Фильтр по авторам новостей
-    author_list = User.objects.all()
+    # author_list = User.objects.all()
     # print(connection.queries)
     # print('author_list:', author_list)
     #
@@ -83,44 +86,29 @@ def news(request):
     #     print('author:', author)
 
     # Show Articles
-    selected = 0
+    # selected = 0
+    # articles = Article.objects.all()
     articles = Article.objects.all()
+    selected_author = 0
+    selected_category = 0
 
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        print('value:', request.POST.get('value'))
-        print('name:', request.POST.get('name'))
-        if name == 'SaveArticle':
-            # Do something here.
-            print('Methodname:', name)
-        elif name == 'FilterApply':
-            # Do something else here.
-            print('Methodname:', name)
-        elif name == 'Save':
-            # Do something else here.
-            print('Methodname:', name)
-        else:
-            print('Methodname:', name)
-    else:
-        print('No Post method:')
+    author_list = User.objects.all()
+    category_list = Article.categories
 
-
+    # Новый обработчик
     if request.method == "POST":
-        if name == 'FilterApply':
-            print('Method name:', name)
-            selected = int(request.POST.get('author_filter'))
-            # category_selected = request.POST.get('category1')
-            category_selected = [request.POST.get('category1'), request.POST.get('category2'), request.POST.get('category3'), request.POST.get('category4')]
-
-            print('category_selected:', category_selected)
-            print('Count cat:', len(category_selected))
-            if selected == 0:
+        typename = request.POST.get('name')
+        print('typename', typename)
+        if typename == 'FilterApply': #фильтруем новости
+            selected_author = int(request.POST.get('author_filter'))
+            selected_category = int(request.POST.get('category_filter'))
+            if selected_author == 0: #выбраны все авторы
                 articles = Article.objects.all()
-            # elif selected > 0 and len(category_selected) == 0:
-            #      articles = Article.objects.filter(author=selected, category__in=category_selected)
             else:
-                articles = Article.objects.filter(author=selected, category__in=category_selected)
-        elif name == 'SaveArticle':
+                articles = Article.objects.filter(author=selected_author)
+            if selected_category != 0: #фильтруем найденные по авторам результаты по категориям
+                articles = articles.filter(category__icontains=category_list[selected_category-1][0])
+        elif typename == 'SaveArticle': #сохраняем статью
             form = ArticleForm(request.POST)
             if form.is_valid():
                 current_user = request.user
@@ -131,19 +119,76 @@ def news(request):
                     print(new_article.id)
                     try:
                         form.save_m2m()  # чтобы теги сохранились
+                        messages.success(request, f'Article {new_article.title} created!')
                     except:
                         # Удаляем созданную новость
                         print('Новость удалена')
 
-                    context = {'Alert': 'Article +'
-                               }
-
                     return redirect('news_index')  # Перенаправляем на страницу новостей
                     # form.save()
-        else:
-            articles = Article.objects.all()
-    else:
+    else: #если страница открывается впервые
+        selected_author = 0
+        selected_category = 0
         articles = Article.objects.all()
+
+    # if request.method == 'POST':
+    #     name = request.POST.get('name')
+    #     print('value:', request.POST.get('value'))
+    #     print('name:', request.POST.get('name'))
+    #     if name == 'SaveArticle':
+    #         # Do something here.
+    #         print('Methodname:', name)
+    #     elif name == 'FilterApply':
+    #         # Do something else here.
+    #         print('Methodname:', name)
+    #     elif name == 'Save':
+    #         # Do something else here.
+    #         print('Methodname:', name)
+    #     else:
+    #         print('Methodname:', name)
+    # else:
+    #     print('No Post method:')
+
+    # Старый обработчик
+    # if request.method == "POST":
+    #     if name == 'FilterApply':
+    #         print('Method name:', name)
+    #         selected = int(request.POST.get('author_filter'))
+    #         # category_selected = request.POST.get('category1')
+    #         category_selected = [request.POST.get('category1'), request.POST.get('category2'), request.POST.get('category3'), request.POST.get('category4')]
+    #
+    #         print('category_selected:', category_selected)
+    #         print('Count cat:', len(category_selected))
+    #         if selected == 0:
+    #             articles = Article.objects.all()
+    #         # elif selected > 0 and len(category_selected) == 0:
+    #         #      articles = Article.objects.filter(author=selected, category__in=category_selected)
+    #         else:
+    #             articles = Article.objects.filter(author=selected, category__in=category_selected)
+    #     elif name == 'SaveArticle':
+    #         form = ArticleForm(request.POST)
+    #         if form.is_valid():
+    #             current_user = request.user
+    #             if current_user != None:  # проверка, что юзер не аноним
+    #                 new_article = form.save(commit=False)  # чтобы не записывалась сразу в БД
+    #                 new_article.author = current_user
+    #                 new_article.save()  # сохраняем в БД
+    #                 print(new_article.id)
+    #                 try:
+    #                     form.save_m2m()  # чтобы теги сохранились
+    #                 except:
+    #                     # Удаляем созданную новость
+    #                     print('Новость удалена')
+    #
+    #                 context = {'Alert': 'Article +'
+    #                            }
+    #
+    #                 return redirect('news_index')  # Перенаправляем на страницу новостей
+    #                 # form.save()
+    #     else:
+    #         articles = Article.objects.all()
+    # else:
+    #     articles = Article.objects.all()
 
     # print('Автор новости', articles)
     # for articleone in articles:
@@ -155,30 +200,31 @@ def news(request):
     # category_list = Article.objects.category.all()
     # print('category_list:', category_list)
 
-    article_model = Article
-    category_list = article_model.categories
+    # article_model = Article
+    # category_list = article_model.categories
     # print('categories:', category_list)
 
-    import datetime
+    # import datetime
     # print('Current DateTime:', datetime.datetime.now())
     #print(datetime.datetime.now() - articleone.date)
 
-    print(author_list)
+    # print(author_list)
     # print(request.name)
 
-    currentdatetime = datetime.datetime.now()
+    # currentdatetime = datetime.datetime.now()
 
-    context={'articles': articles,
-             'author_list': author_list,
-             'category_list': category_list,
-             'selected': selected,
-             'news': news,
-             'today_articles': today_articles,
-             'currentdatetime': currentdatetime,
-             'mybirthdate': datetime.datetime(2004, 11, 18),
-             'mydate': datetime.datetime(2020, 5, 17),
-             'formArticle': formArticle
-             }
+    context = {'articles': articles,
+            'author_list': author_list,
+            'category_list': category_list,
+            'selected_author': selected_author,
+            'selected_category': selected_category,
+            'news': news,
+            # 'today_articles': today_articles,
+            # 'currentdatetime': currentdatetime,
+            # 'mybirthdate': datetime.datetime(2004, 11, 18),
+            # 'mydate': datetime.datetime(2020, 5, 17),
+            'formArticle': formArticle
+            }
 
     return render(request, 'news/news.html', context)
 
@@ -202,7 +248,7 @@ def detail(request,id):
     return render(request, 'news/detail.html', context)
 
 #только залогиненные пользователи. Редирект на главную страницу
-@login_required(login_url="/")
+#@login_required(login_url="/")
 def create_article(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES) #request.FILES - тут хранятся файлы
@@ -220,6 +266,7 @@ def create_article(request):
 
                 try:
                     form.save_m2m() #чтобы теги сохранились
+                    messages.success(request, f'Article {new_article.title} created!')
                 except:
                     #Удаляем созданную новость
                     print('Новость удалена')
@@ -229,4 +276,4 @@ def create_article(request):
     else:
         form = ArticleForm() #пустая форма
 
-    return render(request, 'news/create_news.html', {'form': form})
+    return render(request, 'news/create_article.html', {'form': form})

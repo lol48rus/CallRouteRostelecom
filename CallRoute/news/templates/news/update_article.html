@@ -1,0 +1,36 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% include 'main/header.html' %}
+<body class="sb-nav-fixed">
+    {% include 'main/navbar-top.html' %}
+        <div id="layoutSidenav">
+            {% include 'main/sidebar.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <!-- Write your web page content here -->
+                    <div class="container">
+                        <div class="d-flex flex-column align-items-center py-4"> <!-- justify-content-center vh-100 -->
+                            <div class="card shadow index-card-custom rounded border-1 border-left-primary w-75">
+                                <div class="card-header">
+                                    <h5>Редактирование статьи</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" class="contact_form" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ form|crispy }}
+                                        {{ image_form|crispy }}
+                                        <input type="submit" class="btn btn-success" value = "Сохранить">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+{% include 'main/footer.html' %}
+{% include 'main/scripts.html' %}
+
+</body>
+
+</html>

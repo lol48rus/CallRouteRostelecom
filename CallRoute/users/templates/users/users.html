@@ -17,7 +17,7 @@
                                         <h5 class="m-0 fw-bold text-primary"><i class="fa-solid fa-users me-1"></i>Users</h5>
                                     </div>
                                     <div>
-                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fa-solid fa-user-plus me-1"></i>Add user</button>
+                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow fw-bolder" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fa-solid fa-user-plus me-1"></i>Add user</button>
                                     </div>
                                     <div class="modal fade" id="modalLarge" tabindex="-1" aria-labelledby="modalLargeTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
@@ -81,7 +81,33 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
+                                            <!-- begin: Import users -->
+                                            {% for user_profile in user_list %}
+                                            <tr>
+                                                <td>{{ user_profile }}</td>
+                                                <td>{{ user_profile.id }}</td>
+                                                <td>{{ user_profile.account.nickname }}</td>
+                                                <td><a class="badge rounded-pill bg-primary">Primary</a></td>
+                                                <td>{{ user_profile.account.birthdate }}</td>
+                                                <td><div class="form-check form-switch">
+                                                      <input type="checkbox" class="form-check-input bg-success" id="switchDisabled2" {%  if user_profile.is_staff %} checked {% endif %} >
+                                                      <label class="form-check-label" for="switchDisabled2"></label>
+                                                    </div>
+                                                </td>
+                                                <td>{{ user_profile.account.gender }}</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                             <!-- end: Import users -->
                                         </tbody>
                                     </table>
                                 </div>

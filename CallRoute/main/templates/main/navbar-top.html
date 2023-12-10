@@ -28,10 +28,10 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <div class="topbar-divider d-none d-sm-block"></div>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    {{ request.user.username }}
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="d-none d-lg-inline text-muted small me-1">{{ request.user.username }}</span><i class="fas fa-user fa-fw"></i></a>
+                    <!-- <small class="text-muted">{{ request.user.username }}</small> -->
                     <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/profile/"><i class="fas fa-user fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Profile</span></a></li>
+                        <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Profile</span></a></li>
                         <li><a class="dropdown-item" href="#!"><i class="fas fa-list fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Activity Log</span></a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li>

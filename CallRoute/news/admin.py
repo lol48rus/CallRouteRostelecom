@@ -34,7 +34,7 @@ class ArticleImageInline(admin.TabularInline): #StackedInline - тоже мож�
 
 class ArticleAdmin(admin.ModelAdmin):
     ordering = ['-date', 'title', 'author']
-    list_display = ['title', 'author', 'date', 'symbol_count', 'image_tag']
+    list_display = ['title', 'author', 'date', 'symbol_count', 'image_tag', 'category']
     list_filter = ['date', ArticleFilter] #'title', 'author',
     list_display_links = ('title', 'date')
 

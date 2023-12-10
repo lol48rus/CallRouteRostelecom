@@ -69,6 +69,35 @@ def index(request):
         form = AccountForm()
         # form.name='Любимый клиент'
 
-    context = {'form': form}
+    user_list = User.objects.all()
+    print(user_list)
+
+    context = {'form': form,
+               'user_list': user_list}
     return render(request, 'users/users.html', context)
 
+def profile(request):
+    title = 'Профиль'
+
+    context = {'title': title
+               }
+
+    return render(request, 'users/profile.html', context)
+
+
+from .forms import AccountUpdateForm, UserUpdateForm
+def profile_update(request):
+    user = request.user
+    account = Account.objects.get(user=user)
+    if request.method == "POST":
+        user_form = UserUpdateForm(request.POST, instance=user)
+        account_form = AccountUpdateForm(request.POST, request.FILES, instance=account)
+        if user_form.is_valid() and account_form.is_valid():
+            user_form.save()
+            account_form.save()
+            messages.success(request,"Профиль успешно обновлен")
+            return redirect('profile')
+    else:
+        context = {'account_form':AccountUpdateForm(instance=account),
+                   'user_form':UserUpdateForm(instance=user)}
+    return render(request,'users/edit_profile.html',context)

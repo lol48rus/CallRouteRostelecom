@@ -21,9 +21,9 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('', views.index, name='home'),
-    # path('login/', views.login, name='login'),
-    # path('register/', views.register, name='register'),
-    path('profile/', views.profile, name='profile'),
+    #path('login/', views.login, name='login'),
+    #path('register/', views.register, name='register'),
+    #path('profile/', views.profile, name='profile'),
     #path('news/', views.news, name='news'),
     path('faq/', views.faq, name='faq'),
     path('reports/', views.reports, name='reports'),

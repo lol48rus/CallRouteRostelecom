@@ -248,7 +248,7 @@
                             {% for article in articles %}
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="card {% if article.category == 'R' %} bg-custom-success {% elif article.category == 'DIVR' %} bg-custom-danger
-                                                    {% elif article.category == 'G' %} bg-custom-info {% elif article.category == 'C' %} bg-custom-primary {% endif %} border-0 shadow light-hoverable" style="text-decoration: none;">
+                                                    {% elif article.category == 'G' %} bg-custom-info {% elif article.category == 'C' %} bg-custom-primary {% else %} bg-custom-dark  {% endif %} border-0 shadow light-hoverable" style="text-decoration: none;">
                                     <!--begin::Body  light-hoverable-->
                                     <div class="card-body">
                                         <div class="d-flex justify-content-start">
@@ -270,17 +270,17 @@
                                             <div class="d-flex me-auto">
                                                 <a href="/news/{{ article.get_absolute_url }}" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
                                             </div>
-                                            <ul class="d-flex justify-content-start list-unstyled mt-auto">
-                                                <li class="d-flex align-items-center me-3">
+                                            <ul class="d-flex justify-content-end align-items-end list-unstyled mt-auto">
+                                                <li class="d-flex align-items-end align-items-end me-3">
                                                     <i class="fas fa-user fa-fw me-1"></i>
                                                     <small>{{ article.author }}</small>
                                                 </li>
-                                                <li class="d-flex align-items-center me-2">
+                                                <li class="d-flex align-items-end me-2">
                                                     <i class="fas fa-calendar-day fa-fw me-1"></i>
                                                     <small>{% if article.generatecommentcount == '0' %} Today {% else %} <span>{{article.generatecommentcount}} d.</span> {% endif %}</small>
                                                     <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
                                                 </li>
-                                                <li class="d-flex align-items-center me-1">
+                                                <li class="d-flex align-items-end me-1">
                                                     <i class="fa-regular fa-comment fa-fw me-1"></i>
                                                     <small>{{ article.generatecommentcount }}</small>
                                                 </li>

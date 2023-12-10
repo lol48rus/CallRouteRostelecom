@@ -1,8 +1,29 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 from .forms import *
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate
+from django.contrib import messages
+from django.contrib.auth.models import Group
 # Create your views here.
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save() #появляется новый юзер
+            group = Group.objects.get(name='Authors')
+            user.groups.add(group)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            authenticate(username=username, password=authenticate)
+            messages.success(request, f'{username} registered!')
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    context = {'form': form}
+    return render(request, 'users/register.html', context)
 
 def index(request):
 

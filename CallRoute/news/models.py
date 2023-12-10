@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
+import datetime
+import random
 # Create your models here.
 
 class News:
@@ -34,9 +36,10 @@ class PublishedToday(models.Manager):
         return super(PublishedToday, self).get_queryset().filter(date__gte=datetime.date.today())
 
 class Article(models.Model):
-    categories = (('E', 'Economic'),
-                  ('S', 'Science'),
-                  ('IT', 'IT')
+    categories = (('R', 'Report'),
+                  ('DIVR', 'Dashboard/IVR'),
+                  ('G', 'Global'),
+                  ('C', 'CallRoute'),
                   )
     #поля
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
@@ -50,6 +53,7 @@ class Article(models.Model):
     category = models.CharField(choices=categories, max_length=20, verbose_name='Категории')
     tags = models.ManyToManyField(to=Tag, blank=True)
 
+    # status = models.BooleanField(default=True)
     slug = models.SlugField()
 
     #Использование менеджера моделей
@@ -72,6 +76,22 @@ class Article(models.Model):
     def shortdatestr(self):
         return f'{str(self.date)[:10]}'
 
+    def shortanouncement(self):
+        return f'{str(self.anouncement)[:25]}...'
+
+    def generatecommentcount(self):
+        return f'{str(random.randint(0,9))}'
+
+    def image_tag(self):
+        image = Image.objects.filter(article=self)
+        print('image:', image)
+        #image - хранит queryset
+        #mark-safe - рендерит код на странице. помечает его безопасным для рендеринга
+        if image:
+            return mark_safe(f'<img src="{image[0].image.url}" height="50px" width="auto" />')
+        else:
+            return '(no image)'
+
     #метаданные модели
     class Meta:
         ordering = ['title', 'date']  #сортировка
@@ -81,7 +101,7 @@ class Article(models.Model):
 class Image(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(upload_to='article_images/')
+    image = models.ImageField(upload_to='article_images/') #лучше добавить поле default
 
     def __str__(self):
         return self.title

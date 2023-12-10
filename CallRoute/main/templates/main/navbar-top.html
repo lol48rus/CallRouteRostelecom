@@ -15,29 +15,36 @@
         </form>
 
         <!-- Navbar News-->
-        <a class="btn btn-secondary btn-sm position-relative" href="{% url 'news_index' %}">
+        <a class="btn btn-light-warning btn-sm position-relative fw-bolder" href="{% url 'news_index' %}">
             News
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            3+
-            <span class="visually-hidden">unread messages</span>
+                3+
+                <span class="visually-hidden">unread messages</span>
             </span>
         </a>
 
         <!-- Navbar Profile-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/profile/"><i class="fas fa-user fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Profile</span></a></li>
-                    <li><a class="dropdown-item" href="#!"><i class="fas fa-list fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Activity Log</span></a></li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li>
-                        <form action="" method="POST">
-                            <button type="submit" name="logout_btn" class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Logout</span></button>
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        {% if request.user.id %}
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <div class="topbar-divider d-none d-sm-block"></div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    {{ request.user.username }}
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/profile/"><i class="fas fa-user fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Profile</span></a></li>
+                        <li><a class="dropdown-item" href="#!"><i class="fas fa-list fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Activity Log</span></a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                            <a href="{% url 'logout' %}" class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Logout</span></a>
+                            <!-- <form action="" method="POST">
+                                <button type="submit" name="logout_btn" class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Logout</span></button>
+                            </form> -->
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        {% else %}
+
+        {% endif %}
+
     </nav>

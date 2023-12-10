@@ -3,12 +3,13 @@
         <div class="sb-sidenav-menu"> <!-- overflow-hidden -->
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="/dashboard/" {% if request.path == '/dashboard/' %} class="link-active" aria-current="page" {% endif %}>
+                <a class="nav-link" href="/dashboard/" {% if request.path == '/dashboard/' %} class="link-custom-active" aria-current="page" {% endif %}>
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link link-active" href="{% url 'calldetail_index' %}">
+                <a class="nav-link link-active" href="{% url 'calldetail_index' %}" {% if request.resolver_match.view_name == 'calldetail_index' %} class="link-custom-active" aria-current="page" {% endif %}>
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-route"></i></div>
+
                     Call Route
                 </a>
 

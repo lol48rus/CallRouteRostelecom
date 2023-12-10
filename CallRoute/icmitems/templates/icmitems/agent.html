@@ -1,0 +1,174 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% include 'main/header.html' %}
+<body class="sb-nav-fixed">
+    {% include 'main/navbar-top.html' %}
+        <div id="layoutSidenav">
+            {% include 'main/sidebar.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <div class="card shadow mb-4 mt-4">
+                            <div class="card-header py-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="m-0 fw-bold text-primary"><i class="fa-solid fa-users me-1"></i>Agents</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="data_table">
+                                    <table id="agent" class="table table-striped table-bordered">
+                                        <thead class="border-bottom">
+                                            <tr>
+                                                <th>SkillTargetID</th>
+                                                <th>Login</th>
+                                                <th>First name</th>
+                                                <th>Last name</th>
+                                                <th>Superviser</th>
+                                                <th>LoginEnabled</th>
+                                                <th>AgentTeam</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td><a class="badge rounded-pill bg-primary">Primary</a></td>
+                                                <td>2011/04/25</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Garrett Winters</td>
+                                                <td>Accountant</td>
+                                                <td>Tokyo</td>
+                                                <td>63</td>
+                                                <td>2011/07/25</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ashton Cox</td>
+                                                <td>Junior Technical Author</td>
+                                                <td>San Francisco</td>
+                                                <td>66</td>
+                                                <td>2009/01/12</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cedric Kelly</td>
+                                                <td>Senior Javascript Developer</td>
+                                                <td>Edinburgh</td>
+                                                <td>22</td>
+                                                <td>2012/03/29</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Airi Satou</td>
+                                                <td>Accountant</td>
+                                                <td>Tokyo</td>
+                                                <td>33</td>
+                                                <td>2008/11/28</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Brielle Williamson</td>
+                                                <td>Integration Specialist</td>
+                                                <td>New York</td>
+                                                <td>61</td>
+                                                <td>2012/12/02</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Herrod Chandler</td>
+                                                <td>Sales Assistant</td>
+                                                <td>San Francisco</td>
+                                                <td>59</td>
+                                                <td>2012/08/06</td>
+                                                <td>2011/04/25</td>
+                                                <td>
+                                                    <div class="d-flex justify-content-around">
+                                                        <a href="edit-user" class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Edit">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button class="btn btn-icon btn-bg-light btn-active-color-primary rounded" title="Delete">
+                                                                <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+{% include 'main/footer.html' %}
+{% include 'main/scripts.html' %}
+
+</body>
+
+</html>

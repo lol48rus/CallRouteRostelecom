@@ -9,18 +9,13 @@
                 <main>
                     <!-- Write your web page content here -->
                     <div class="container-fluid px-4">
-                        <h1> CallDetail из отдельного приложения </h1>
+
                         <div class="row rounded shadow-sm my-3" style="background-color: #f8f9fc;">
                             <div class="col-12">
                                 <div class="d-flex justify-content-end my-2 me-3">
                                     <form method="POST">
                                         {% csrf_token %}
                                         <div class="row align-items-center">
-
-                                            <!-- PDF, XLSX, CSV Export Buttons-->
-
-                                            <!-- PDF, XLSX, CSV Export Buttons-->
-
                                             <div class="col-xl-3 col-md-3 col-sm-4 pb-sm-2">
                                                 <div class="input-group ">
                                                     <span class="input-group-text bg-primary" id="inputDateHelp">
@@ -65,10 +60,9 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Table of CallDetail -->
                         <div class="row">
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <div class="card shadow-sm">
                                     <div class="card-header card-header-custom">
                                         <span class="text-muted fw-bolder"><i class="fa-solid fa-route me-1 text-danger"></i>CallRoute</span>
@@ -132,242 +126,555 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div> -->
+                            <div class="col-12">
+                                <div class="card shadow card-xl-stretch my-3">
+                                    <div class="card-header ">
+                                        <!-- <span class="text-muted fw-bolder"><i class="fa-solid fa-route me-1 text-danger"></i>CallRoute</span> -->
+                                        <h5 class="m-0 fw-bold text-secondary"><i class="fa-solid fa-route me-1 text-secondary"></i>CallRoute</h5>
+                                    </div>
+                                    <div class="card-body py-3">
+                                        <!--begin::Table container-->
+                                        <div class="table-responsive">
+                                            <!--begin::Table-->
+                                            <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                                <!--begin::Table head-->
+                                                <thead>
+                                                    <tr class="fw-bolder text-muted">
+                                                        <th class="w-25px">№
+                                                        </th>
+                                                        <th class="min-w-150px">ANI</th>
+                                                        <th class="min-w-150px">DigitsDialed</th>
+                                                        <th class="min-w-150px">Login</th>
+                                                        <th class="min-w-150px">Extension</th>
+                                                        <th class="min-w-150px">SkillGroup</th>
+                                                        <th class="min-w-150px">CallResult</th>
+                                                        <th class="min-w-150px">FinalDestination</th>
+                                                        <th class="min-w-150px">Queue time</th>
+                                                        <th class="min-w-150px">RingTime</th>
+                                                        <th class="min-w-150px">TalkTime</th>
+                                                        <th class="min-w-150px text-end">Survey</th>
+                                                    </tr>
+                                                </thead>
+                                                <!--end::Table head-->
+                                                <!--begin::Table body-->
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="text-muted fw-bold d-block fs-6">1</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge rounded-pill bg-secondary">+7-995-675-89-24</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge rounded-pill bg-danger">8-800-450-0150</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex justify-content-center flex-column">
+                                                                    <div><span class="text-muted fw-bolder">Ivanov Ivan</span></div>
+                                                                    <div><span class="badge rounded-pill bg-success">SG_First_Line</span></div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">7654</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge rounded-pill bg-danger">8-800-450-0150</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">Transfer</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex justify-content-start flex-column">
+                                                                <div><span class="badge rounded-pill bg-success">SG_2LTP</span></div>
+                                                                <div><span class="badge rounded-pill bg-secondary">3174</span></div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">34</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">8</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">56</span>
+                                                        </td>
+                                                        <td class="text-end">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex justify-content-center flex-column">
+                                                                    <div><span class="text-muted fw-bolder">4</span></div>
+                                                                    <div class="d-flex justify-content-end small-ratings align-items-end">
+                                                                        <i class="fa fa-star rating-color"></i>
+                                                                        <i class="fa fa-star rating-color"></i>
+                                                                        <i class="fa fa-star rating-color"></i>
+                                                                        <i class="fa fa-star rating-color"></i>
+                                                                        <i class="fa-regular fa-star rating-color"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="text-muted fw-bold d-block fs-6">2</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge rounded-pill bg-secondary">+7-995-675-89-24</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge rounded-pill bg-danger">3174</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="d-flex justify-content-center flex-column">
+                                                                    <div><span class="text-muted fw-bolder">Illarionova Tatyana</span></div>
+                                                                    <div><span class="badge rounded-pill bg-success">SG_2LTP</span></div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">7654</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge rounded-pill bg-danger">8-800-450-0150</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">Transfer</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex justify-content-start flex-column">
+                                                                <div><span class="badge rounded-pill bg-danger">IVR - PostCallServey</span></div>
+                                                                <div><span class="badge rounded-pill bg-secondary">3100</span></div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">12</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">7</span>
+                                                        </td>
+                                                        <td class="text-end">
+                                                            <span class="text-muted fw-bold text-muted d-block fs-6">189</span>
+                                                        </td>
+                                                    </tr>
+                                                <tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Table of CallDetail -->
-
-    <div class="row py-3">
-        <div class="col-md-7 col-sm-12">
-            <div class="card shadow border-0">
-                <div class="card-body justify-content-center">
-                    <div class="timeline-label">
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder fs-6"></div>
-                            <div class="timeline-badge">
-                                <i class="fa-solid fa-map-location-dot fa-2xl text-primary"></i>
-                            </div>
-                            <div class="fw-mormal timeline-content text-muted ps-3">Belgorod</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder fs-6"></div>
-                            <div class="timeline-badge">
-                                <i class="bi bi-telephone-forward-fill text-success fs-4"></i>
-                            </div>
-                            <div class="fw-mormal timeline-content text-muted ps-3">Route From <span class="badge rounded-pill bg-primary">88002003000</span></div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">08:42:21</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-warning fs-1"></i>
-                            </div>
-                            <div class="fw-mormal timeline-content text-muted ps-3">Поступил в очередь</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">10:00:03</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-success fs-1"></i>
-                            </div>
-                            <div class="timeline-content d-flex">
-                                <span class="fw-bolder text-gray-800 ps-3">Начало дозвона до оператора</span>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">14:37</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-danger fs-1"></i>
-                            </div>
-                            <div class="timeline-content fw-bolder text-gray-800 ps-3">Начало разговора</div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">16:50</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-primary fs-1"></i>
-                            </div>
-                            <div class="timeline-content fw-mormal text-muted ps-3">Поставлено на удержание</div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">21:03</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-danger fs-1"></i>
-                            </div>
-                            <div class="timeline-content fw-bold text-gray-800 ps-3">Начало постобработки</a></div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">16:50</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-primary fs-1"></i>
-                            </div>
-                            <div class="timeline-content fw-mormal text-muted ps-3">Окончание вызова</div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">21:03</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-danger fs-1"></i>
-                            </div>
-                            <div class="timeline-content fw-bold text-gray-800 ps-3">New order placed
-                            <a href="#" class="text-primary">#XF-2356</a>.</div>
-
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6">10:30</div>
-                            <div class="timeline-badge">
-                                <i class="fa fa-genderless text-success fs-1"></i>
-                            </div>
-                            <div class="timeline-content fw-mormal text-muted ps-3">Finance KPI Mobile app launch preparion meeting</div>
-                        </div>
-                       <div class="timeline-item">
-                            <div class="timeline-label fw-bolder text-gray-800 fs-6"></div>
-                            <div class="timeline-badge">
-                                <i class="fa-solid fa-ranking-star text-primary fs-3"></i>
-                            </div>
-                            <div class="fw-mormal timeline-content text-muted ps-3">Survey <span class="badge rounded-pill bg-primary">5</span> <span class="badge rounded-pill bg-secondary">(1-5)</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Route of Call -->
-
-        <!-- Abonent and Agent Info -->
-        <div class="col-md-5 col-sm-12 ">
-            <div class="card shadow border-0">
-                <div class="card-body justify-content-center">
-                    <div class="card">
-                        <h1 class="text-center">Abonent's Info</h1>
-                      <div class="card-body">
-
-                       </div>
-                    </div>
-                    <br>
-                    <div class="card">
-                        <h1 class="text-center">Agent's Info</h1>
-                        <div class="card-body">
-                            <div class="d-flex bd-highlight">
-                                <div class="p-2 flex-grow-1 align-self-center bd-highlight">
-                                    <h5 class="text-muted"><i class="fa-solid fa-headset me-1"></i>Ivanov Ivan</h5>
-                                </div>
-                                <div class="p-2 bd-highlight">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex align-items-center me-2">
-                                                    <i class="fa-solid fa-clock me-2 text-secondary"></i>
-                                                    <div class="d-none d-xl-block text-muted fw-bold">Last hour:</div>
+                       <div class="row py-3">
+                            <div class="col">
+                                <div class="container ">
+                                    <div class="d-flex justify-content-center mb-3">
+                                        <div class="card bg-secondary shadow border-0 text-white w-50">
+                                            <div class="card-body p-4">
+                                                <h5 class="mb-3 text-white"><i class="fa-solid fa-person fa-xl me-1"></i><span class="badge rounded-pill bg-light text-secondary fw-bolder">abonent</span></h5>
+                                                <p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>2023 3 November 19:45:37</p>
+                                                <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa-solid fa-table me-1"></i>Info</div>
+                                                <div class="fs-6 d-flex justify-content-between mb-1">
+                                                    <div class="fw-bold">
+                                                        Phone
+                                                    </div>
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <h6 class="badge bg-light text-secondary mb-0">+7-995-675-89-24</h6>
+                                                    </div>
                                                 </div>
-                                                <div class="d-flex justify-content-end small-ratings align-items-center">
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa-regular fa-star rating-color"></i>
-                                                    <i class="fa-regular fa-star rating-color"></i>
+                                                <div class="separator separator-dashed text-white-50"></div>
+                                                <div class="fs-6 d-flex justify-content-between mb-3 mt-1">
+                                                    <div class="fw-bold">
+                                                        Location
+                                                    </div>
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <h6 class="badge bg-light text-secondary mb-0">Moscow</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa-solid fa-map-location-dot me-1"></i>Destination</div>
+                                                <div class="fs-6 d-flex justify-content-between mb-1">
+                                                    <div class="fw-bold">
+                                                        Phone
+                                                    </div>
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <h6 class="badge bg-light text-secondary mb-0">8-800-450-0150</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="separator separator-dashed text-white-50"></div>
+                                                <div class="fs-6 d-flex justify-content-between mt-1">
+                                                    <div class="fw-bold">
+                                                        Description
+                                                    </div>
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <h6 class="badge bg-light text-secondary mb-0">General support</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </li>
-
-                                        <li class="list-group-item">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-calendar-day me-2 text-secondary"></i>
-                                                    <div class="d-none d-xl-block text-muted fw-bold">Daily:</div>
-                                                </div>
-                                                <div class="d-flex justify-content-end small-ratings align-items-center">
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa-regular fa-star rating-color"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa-solid fa-calendar-week me-2 text-secondary"></i>
-                                                    <div class="d-none d-xl-block text-muted fw-bold">Week:</div>
-                                                </div>
-                                                <div class="d-flex justify-content-end small-ratings align-items-center">
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                    <i class="fa fa-star rating-color"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-<!--                             <h2 class="pt-2 border-top">Calls</h2> -->
-                            <br>
-                            <ul class="nav nav-pills justify-content-end mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active btn-sm" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Last Hour</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                <button class="nav-link btn-sm" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Daily</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                <button class="nav-link btn-sm" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Week</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                    <div class="d-flex">
-                                        <div class="flex-fill text-center border-bottom">
-                                            <i class="bi bi-telephone-inbound-fill text-success"></i>
-                                            <div class="d-none d-xl-block">Handled</div>
-                                        </div>
-                                        <div class="flex-fill text-center border-bottom">
-                                            <i class="bi bi-telephone-x-fill text-warning"></i>
-                                            <div class="d-none d-xl-block">Missed</div>
-                                        </div>
-                                        <div class="flex-fill text-center border-bottom">
-                                            <i class="fa-solid fa-phone-slash text-danger"></i>
-                                            <div class="d-none d-xl-block">Abandon</div>
-                                        </div>
-                                        <div class="flex-fill text-center border-bottom">
-                                            <i class="bi bi-telephone-outbound-fill text-secondary"></i>
-                                            <div class="d-none d-xl-block">Transfered</div>
                                         </div>
                                     </div>
-                                    <div class="d-flex">
-                                        <div class="flex-fill text-center">
-                                            <span class="badge rounded-pill bg-success">4</span>
+                                    <div class="main-timeline-4 text-white">
+                                        <div class="timeline-4 left-4">
+                                            <div class="card bg-danger border-0">
+                                                <div class="card-body p-4">
+                                                    <h5 class="mb-3"><i class="fa-solid fa-voicemail fa-xl me-1"></i><span class="me-1">8-800-450-0150</span><span class="badge rounded-pill bg-light text-danger fw-bolder">ivr</span></h5>
+                                                    <p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>2023 3 November 19:45:37</p>
+                                                    <!--  begin::Info -->
+                                                    <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa-solid fa-table me-1"></i>Info</div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1">
+                                                        <div class="fw-bold">
+                                                            Duration
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-danger fw-bolder">57 sec.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Server
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-danger fw-bolder">127.0.0.1:8000</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Application
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-danger fw-bold">LP_CC_8004500150_11062023</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mt-1">
+                                                        <div class="fw-bold">
+                                                            Schema
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <a href="" class="text-white"><i class="fa-solid fa-file-pdf fa-xl"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <!--  end::Info -->
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="flex-fill text-center">
-                                            <span class="badge rounded-pill bg-warning">1</span>
+                                        <div class="timeline-4 right-4">
+                                            <div class="card bg-success border-0">
+                                                <div class="card-body p-4">
+                                                    <h5 class="mb-3"><i class="fa-solid fa-users-viewfinder fa-xl me-1"></i><span class="me-1">SG_First_Line</span><span class="badge rounded-pill bg-light text-success fw-bolder">skillgroup</span></h5>
+                                                    <p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>2023 3 November 19:45:37</p>
+                                                    <!--  begin::Queue -->
+                                                    <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa-solid fa-business-time me-1"></i>Queue</div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1">
+                                                        <div class="fw-bold">
+                                                            Queue time
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-success fw-bolder">6 sec.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Max in queue
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-success fw-bold">3</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mt-1">
+                                                        <div class="fw-bold">
+                                                            Alive operators
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-success fw-bolder">1</span>
+                                                        </div>
+                                                    </div>
+                                                    <!--  end::Calls -->
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="flex-fill text-center">
-                                            <span class="badge rounded-pill bg-danger">0</span>
+
+                                        <div class="timeline-4 left-4">
+                                            <div class="card bg-primary border-0">
+                                                <div class="card-body p-4">
+                                                    <div class="d-flex">
+                                                        <div class="d-fill me-1">
+                                                            <h5 class="mb-3"><i class="fa-solid fa-headset fa-xl me-1"></i><span class="me-1">Ivanov.Ivan</span><span class="badge rounded-pill bg-light text-primary fw-bolder">operator</span></h5>
+                                                            <p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>03.11.2023 19:45:37</p>
+                                                        </div>
+                                                        <div class="d-fill bg-light py-1 rounded">
+                                                            <canvas id="myPieChart"></canvas>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--  begin::Raiting -->
+                                                    <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa fa-ranking-star me-1"></i>Raiting</div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1">
+                                                        <div class="fw-bold">
+                                                            Last hour
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa-regular fa-star rating-color"></i>
+                                                            <i class="fa-regular fa-star rating-color"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Daily
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa-regular fa-star rating-color"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-3 mt-1">
+                                                        <div class="fw-bold">
+                                                            Week
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                        </div>
+                                                    </div>
+                                                    <!--  end::Raiting -->
+                                                    <!--  begin::Calls -->
+                                                    <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa fa-phone me-1"></i>Calls</div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1">
+                                                        <div class="fw-bold">
+                                                            Inbound
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-primary fw-bolder">6</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Missed
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-primary fw-bold">3</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mt-1">
+                                                        <div class="fw-bold">
+                                                            Abandon
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-primary fw-bolder">1</span>
+                                                        </div>
+                                                    </div>
+                                                    <!--  end::Calls -->
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="flex-fill text-center">
-                                            <span class="badge rounded-pill bg-secondary">1</span>
+                                        <div class="timeline-help-4 right-4">
+                                            <div class="card text-black timeline-help-4">
+                                                <!--begin::Card body-->
+                                                <div class="card-body p-9">
+                                                    <!--begin::Heading-->
+                                                    <div class="fs-2hx fw-bolder">237</div>
+                                                    <div class="fs-4 fw-bold text-gray-400 mb-7">Current Projects</div>
+                                                    <!--end::Heading-->
+                                                    <!--begin::Wrapper-->
+                                                    <div class="d-flex flex-wrap">
+                                                        <!--begin::Chart-->
+                                                        <div class="d-flex flex-center h-100px w-100px me-9 mb-5">
+                                                            <canvas id="kt_project_list_chart" width="150" height="150" style="display: block; box-sizing: border-box; height: 100px; width: 100px;"></canvas>
+                                                        </div>
+                                                        <!--end::Chart-->
+                                                        <!--begin::Labels-->
+                                                        <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
+                                                            <!--begin::Label-->
+                                                            <div class="d-flex fs-6 fw-bold align-items-center mb-3">
+                                                                <div class="bullet bg-primary me-3"></div>
+                                                                <div class="text-gray-400">Active</div>
+                                                                <div class="ms-auto fw-bolder text-gray-700">30</div>
+                                                            </div>
+                                                            <!--end::Label-->
+                                                            <!--begin::Label-->
+                                                            <div class="d-flex fs-6 fw-bold align-items-center mb-3">
+                                                                <div class="bullet bg-success me-3"></div>
+                                                                <div class="text-gray-400">Completed</div>
+                                                                <div class="ms-auto fw-bolder text-gray-700">45</div>
+                                                            </div>
+                                                            <!--end::Label-->
+                                                            <!--begin::Label-->
+                                                            <div class="d-flex fs-6 fw-bold align-items-center">
+                                                                <div class="bullet bg-gray-300 me-3"></div>
+                                                                <div class="text-gray-400">Yet to start</div>
+                                                                <div class="ms-auto fw-bolder text-gray-700">25</div>
+                                                            </div>
+                                                            <!--end::Label-->
+                                                        </div>
+                                                        <!--end::Labels-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </div>
+                                                <!--end::Card body-->
+                                            </div>
+                                        </div>
+                                        <div class="timeline-4 left-4">
+                                            <div class="card bg-primary border-0">
+                                                <div class="card-body p-4">
+                                                    <h5 class="mb-3"><i class="fa-solid fa-headset fa-xl me-1"></i><span class="me-1">Ivanov.Ivan</span><span class="badge rounded-pill bg-light text-primary fw-bolder">operator</span></h5>
+                                                    <p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>2023 3 November 19:45:37</p>
+                                                    <!--  begin::Raiting -->
+                                                    <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa fa-ranking-star me-1"></i>Raiting</div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1">
+                                                        <div class="fw-bold">
+                                                            Last hour
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa-regular fa-star rating-color"></i>
+                                                            <i class="fa-regular fa-star rating-color"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Daily
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa-regular fa-star rating-color"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-3 mt-1">
+                                                        <div class="fw-bold">
+                                                            Week
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                            <i class="fa fa-star rating-color"></i>
+                                                        </div>
+                                                    </div>
+                                                    <!--  end::Raiting -->
+                                                    <!--  begin::Calls -->
+                                                    <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa fa-phone me-1"></i>Calls</div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1">
+                                                        <div class="fw-bold">
+                                                            Inbound
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-primary fw-bolder">6</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed text-white-50"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                        <div class="fw-bold">
+                                                            Missed
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-primary fw-bold">3</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="separator separator-dashed"></div>
+                                                    <div class="fs-6 d-flex justify-content-between mt-1">
+                                                        <div class="fw-bold">
+                                                            Abandon
+                                                        </div>
+                                                        <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                            <span class="badge rounded-pill bg-light text-primary fw-bolder">1</span>
+                                                        </div>
+                                                    </div>
+                                                    <!--  end::Calls -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="card bg-danger text-white border-0 w-50">
+                                            <div class="card-body p-4">
+                                                <!-- <h5 class="mb-3"><i class="fa-solid fa-voicemail fa-xl me-1"></i><span class="me-1">Post Call Survey</span><span class="badge rounded-pill bg-light text-danger fw-bolder">ivr</span></h5>
+                                                <p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>2023 3 November 19:45:37</p> -->
+                                                <!--  begin::Survey -->
+                                                <!-- <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa-solid fa-business-time me-1"></i>Survey</div> -->
+                                                <div class="fs-6 d-flex justify-content-between mb-1">
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <div class="fw-bold">
+                                                            Points
+                                                        </div>
+                                                    </div>
+                                                    <div class="fw-bold">
+                                                        <a href="#" class="btn btn-circle position-relative bg-danger">
+                                                            <i class="fa fa-ranking-star fa-xl text-white"></i>
+                                                            <span class="position-absolute top-0 start-70 translate-middle badge rounded-pill bg-white text-danger fw-bolder">
+                                                                <span class="fw-bolder">4</span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <span class="badge rounded-pill bg-light text-danger fw-bolder">from (1-5)</span>
+                                                    </div>
+                                                </div>
+                                                <!--  end::Survey -->
+                                                <!--  begin::Info -->
+                                                <div class="fs-5 fw-bold text-white-50 mb-2"><i class="fa-solid fa-table me-1"></i>Info</div>
+                                                <div class="fs-6 d-flex justify-content-between mb-1">
+                                                    <div class="fw-bold">
+                                                        Server
+                                                    </div>
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <span class="badge rounded-pill bg-light text-danger fw-bolder">127.0.0.1:8000</span>
+                                                    </div>
+                                                </div>
+                                                <div class="separator separator-dashed text-white-50"></div>
+                                                <div class="fs-6 d-flex justify-content-between mb-1 mt-1">
+                                                    <div class="fw-bold">
+                                                        Application
+                                                    </div>
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <span class="badge rounded-pill bg-light text-danger fw-bold">LP_CC_PCS_21092023</span>
+                                                    </div>
+                                                </div>
+                                                <div class="separator separator-dashed"></div>
+                                                <div class="fs-6 d-flex justify-content-between mb-3 mt-1">
+                                                    <div class="fw-bold">
+                                                        Schema
+                                                    </div>
+                                                    <div class="d-flex justify-content-end small-ratings align-items-center">
+                                                        <a href="" class="text-white"><i class="fa-solid fa-file-pdf fa-xl"></i></a>
+                                                    </div>
+                                                </div>
+                                                <!--  end::Info -->
+                                                <div class="d-flex flex-column justify-content-end align-items-end">
+                                                    <div><p class="text-muted text-white-50 mb-3"><i class="far fa-clock me-1" aria-hidden="true"></i>2023 3 November 19:45:37</p></div>
+                                                    <div><h5 class="mb-3"><i class="fa-solid fa-voicemail fa-xl me-1"></i><span class="me-1">Post Call Survey</span><span class="badge rounded-pill bg-light text-danger fw-bolder">ivr</span></h5></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">tabpane2</div>
-                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">tabpane3</div>
                             </div>
                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Abonent and Agent Info -->
-    </div>
-
-
-
-
-
-
                     </div>
                 </main>
 

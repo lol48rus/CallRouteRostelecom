@@ -42,7 +42,7 @@
     --bs-success: #198754;
     --bs-info: #0dcaf0;
     --bs-warning: #ffc107;
-    --bs-danger: #dc3545;
+    --bs-danger: #8f0b18;
     --bs-light: #f8f9fa;
     --bs-dark: #212529;
     --bs-primary-rgb: 13, 110, 253;
@@ -11911,6 +11911,21 @@ body {
     border-bottom-color: #eff2f5;
 }
 
+
+
+.card.light-hoverable {
+    /*cursor: pointer;*/
+    transition: all .2s ease
+}
+
+.card.light-hoverable:hover {
+    transition: all 0.2s ease !important;
+    -webkit-transform: scale(1.1) !important;
+    -ms-transform: scale(1.1) !important;
+    transform: scale(1.1) !important;
+    z-index: 2 !important;
+}
+
 .card.hoverable:hover {
     text-shadow: none !important;
     box-sizing: border-box !important;
@@ -12072,3 +12087,78 @@ body {
 }
 
 /*Raiting Starts*/
+
+.bg-custom-danger {
+    background-color: #f1416c !important
+}
+.bg-custom-danger:hover {
+    /*background-color: #d9214e!important*/
+    background-color: #e32956 !important
+}
+.bg-custom-primary {
+     background-color: #009ef7!important
+}
+
+.bg-custom-primary:hover {
+     background-color: #0095e8!important
+}
+
+.bg-custom-success {
+    background-color: #50cd89!important
+}
+
+.bg-custom-success:hover {
+    background-color: #47be7d!important
+}
+
+.bg-custom-warning {
+    background-color: #ffc700!important
+}
+
+.bg-custom-warning:hover {
+    background-color: #f1bc00!important
+}
+
+.bg-custom-info {
+    background-color: #7239ea!important
+}
+
+.bg-custom-info:hover {
+    background-color: #5014d0!important
+}
+
+.bg-custom-secondary {
+    background-color: #e4e6ef!important
+}
+
+.bg-custom-secondary:hover {
+    background-color: #b5b5c3!important
+}
+
+.bg-custom-dark {
+    background-color: #181c32!important
+}
+
+.bg-custom-dark:hover {
+    background-color: #131628!important
+}
+
+.h-100px {
+    height: 100px!important
+}
+
+.w-100px {
+    width: 100px!important
+}
+
+.w-250px {
+    width: 250px!important
+}
+
+.w-300px {
+    width: 300px!important
+}
+
+.link-custom-active{
+    color: #ffffff;!important;
+}

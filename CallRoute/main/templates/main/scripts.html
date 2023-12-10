@@ -3,7 +3,12 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> -->
         <script src="{% static 'main/' %}js/bootstrap.bundle.min.js"></script>
         <script src="{% static 'main/' %}js/scripts.js"></script>
-        <script src="{% static 'main/' %}js/jquery-3.6.0.min.js"></script>
+
+        <!-- begin::Для работы с DataTables -->
+        {% if request.path == '/users/' %}
+            <script src="{% static 'main/' %}js/jquery-3.6.0.min.js"></script>
+        {% endif %}
+        <!-- end::Для работы с DataTables -->
 
         <!-- Charts Example-->
         <script src="{% static 'main/' %}js/index-cards/index-chart-bar.js"></script>
@@ -25,3 +30,30 @@
         <script src="{% static 'main/' %}js/datatables/vfs_fonts.js"></script>
         <script src="{% static 'main/' %}js/datatables/custom.js"></script>
         <!-- end::HTML5 export buttons -->
+
+        <!-- begin::jQuery !-->
+        <!-- Конфликт с DataTables !-->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script> -->
+        <!-- end::jQuery !-->
+        <!-- begin::jQuery UI !-->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <!-- end::jQuery UI !-->
+
+
+        <script>
+          $(function() {
+            $("#search_input").autocomplete({
+              source: "search_auto/",
+              select: function (event, ui) { //item selected
+                AutoCompleteSelectHandler(event, ui)
+              },
+              minLength: 2,
+            });
+          });
+
+          function AutoCompleteSelectHandler(event, ui)
+          {
+            var selectedObj = ui.item;
+          }
+        </script>

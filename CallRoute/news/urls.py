@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     path('show', views.news, name='news_index'),
     #path('show/<int:id>/', views.detail, name='news_detail'),
+    path('search_auto/', views.search_auto, name='search_auto'),
     path('show/<int:pk>/', views.ArticleDetailView.as_view(), name='news_detail_generic'),  #обязательно использоваь метод as_view()
     path('update/<int:pk>/', views.ArticleUpdateView.as_view(), name='news_update'),
     path('delete/<int:pk>/', views.ArticleDeleteView.as_view(), name='news_delete'),

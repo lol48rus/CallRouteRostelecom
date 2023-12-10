@@ -11,13 +11,19 @@
                     <!-- Write your web page content here -->
                     <div class="container-fluid px-4">
                         <div class="card shadow mb-4 mt-4">
-                            <div class="card-header py-2">
+                            <div class="card-header bg-white border-bottom-0 p-2 m-2">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="m-0 fw-bold text-primary"><i class="fa-solid fa-users me-1"></i>Users</h5>
+                                    <!-- <h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+													<span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>
+												</h3> -->
+                                    <div class="d-flex align-items-start flex-column">
+                                        <!-- <h5 class="m-0 fw-bold text-primary"><i class="fa-solid fa-users me-1"></i>Users</h5> -->
+                                        <span class="card-label fw-bolder fs-5"><i class="fa-solid fa-users me-1"></i>Users</span>
+                                        <span class="text-muted mt-1 fw-bold">Over {{ user_list|length }} members</span>
                                     </div>
                                     <div>
-                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow fw-bolder" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fa-solid fa-user-plus me-1"></i>Add user</button>
+                                        <button href="#" type="button" class="btn btn-light-primary shadow fw-bolder" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fa-solid fa-user-plus me-1"></i>Add user</button>
                                     </div>
                                     <div class="modal fade" id="modalLarge" tabindex="-1" aria-labelledby="modalLargeTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
@@ -91,7 +97,7 @@
                                                 <td>{{ user_profile.account.birthdate }}</td>
                                                 <td><div class="form-check form-switch">
                                                       <input type="checkbox" class="form-check-input bg-success" id="switchDisabled2" {%  if user_profile.is_staff %} checked {% endif %} >
-                                                      <label class="form-check-label" for="switchDisabled2"></label>
+                                                      <label class="form-check-label" for="switchDisabled2">Disabled checked switch</label>
                                                     </div>
                                                 </td>
                                                 <td>{{ user_profile.account.gender }}</td>

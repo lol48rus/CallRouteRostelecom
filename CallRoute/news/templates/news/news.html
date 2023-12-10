@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% include 'main/header.html' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
 <body class="sb-nav-fixed">
     {% include 'main/navbar-top.html' %}
         <div id="layoutSidenav">
@@ -17,13 +18,23 @@
                                     <div class="me-auto">
                                         <h5 class="m-0 fw-bold text-warning"><i class="fa-solid fa-rss me-1"></i>News</h5>
                                     </div>
+                                    <div class="search me-2">
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="input-group input-group-sm shadow-sm">
+                                                <input type="hidden" name="name" value="SearchShow">
+                                                <input class="form-control rounded" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" id="search_input" name="search"/>
+                                                <button class="btn btn-light-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search fa-fw "></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
                                     <div class="me-2">
                                         <div class="dropdown">
                                             <!-- <button type="submit" class="btn btn-light-primary fw-bolder"><i class="fas fa-filter fa-fw fa-xs me-1"></i>Filter</button> -->
-                                            <button class="btn btn-light-primary btn-sm fw-bolder shadow" type="button" id="dropdownMenuClickableInside" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn btn-light-primary btn-sm fw-bolder shadow-sm" type="button" id="dropdownMenuClickableInside" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="fas fa-filter fa-fw fa-xs me-1"></i>Filter
                                             </button>
-                                            <form class="dropdown-menu dropdown-menu-end p-3 menu-sub-dropdown shadow w-250px w-md-300px bg-light" aria-labelledby="dropdownMenuClickableInside" method="POST">
+                                            <form class="dropdown-menu dropdown-menu-end p-3 menu-sub-dropdown shadow w-300px w-md-300px bg-light" aria-labelledby="dropdownMenuClickableInside" method="POST">
                                                 <input type="hidden" name="name" value="FilterApply">
                                                  {% csrf_token %}
                                                 <div class="pb-2">
@@ -42,7 +53,7 @@
                                                         <!--end::Label-->
                                                         <!--begin::Input-->
                                                         <div>
-                                                            <select class="form-select" name="author_filter">
+                                                            <select class="form-select w-75" name="author_filter">
                                                                 <option value="0">All authors</option>
                                                                 {% for author in author_list %}
                                                                     <option value="{{ author.id }}"{% if selected_author == author.id %} selected {% endif %} >{{ author }}</option>
@@ -58,7 +69,7 @@
                                                         <label class="form-label fw-bold text-muted">Category:</label>
                                                         <!--begin::Input-->
                                                         <div>
-                                                            <select class="form-select" name="category_filter">
+                                                            <select class="form-select w-75" name="category_filter">
                                                                 <option value="0">All categories</option>
                                                                 {% for category in category_list %}
                                                                     <option value="{{ forloop.counter }}"{% if selected_category == forloop.counter %} selected {% endif %} >{{ category.1 }}</option>
@@ -69,78 +80,84 @@
                                                     </div>
                                                     <div class="mt-3">
                                                         <!--begin:Option-->
-                                                        <div class="d-flex justify-content-start align-items-center">
-                                                            <div>
-                                                                <span class="fa-stack fa-custom-lg">
-                                                                    <i class="fa-solid fa-square fa-stack-2x" style="color: #7239ea;"></i>
-                                                                    <i class="fa fas fa-rss fa-stack-1x fa-inverse"></i>
-                                                                </span>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="d-flex align-items-start flex-column">
+                                                                <div class="d-flex justify-content-start align-items-center pb-1">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #7239ea;"></i>
+                                                                            <i class="fa fas fa-rss fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">Global</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category1" id="checkDefault1" value="G" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                 <!--end:Option-->
+                                                                <!-- <div class="d-flex justify-content-center py-1">
+                                                                    <div class="separator-filter separator-dashed w-100 mx-2">
+                                                                    </div>
+                                                                </div> -->
+                                                                 <!--begin:Option-->
+                                                                <div class="d-flex justify-content-start align-items-center">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #50cd89;"></i>
+                                                                            <i class="fas fa-table fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">Report</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category2" id="checkDefault1" value="R" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div><span class="fw-bolder text-grey-50">Global</span></div>
-                                                            <div class="ms-auto">
-                                                                <span class="form-check form-check-custom form-check-solid">
-                                                                    <input type="checkbox" class="form-check-input" name="category1" id="checkDefault1" value="G" disabled>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                         <!--end:Option-->
-                                                        <div class="d-flex justify-content-center py-1">
-                                                            <div class="separator-filter separator-dashed w-100 mx-2">
-                                                            </div>
-                                                        </div>
-                                                         <!--begin:Option-->
-                                                        <div class="d-flex justify-content-start align-items-center">
-                                                            <div>
-                                                                <span class="fa-stack fa-custom-lg">
-                                                                    <i class="fa-solid fa-square fa-stack-2x" style="color: #50cd89;"></i>
-                                                                    <i class="fas fa-table fa-stack-1x fa-inverse"></i>
-                                                                </span>
-                                                            </div>
-                                                            <div><span class="fw-bolder text-grey-50">Report</span></div>
-                                                            <div class="ms-auto">
-                                                                <span class="form-check form-check-custom form-check-solid">
-                                                                    <input type="checkbox" class="form-check-input" name="category2" id="checkDefault1" value="R" disabled>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <!--end:Option-->
-                                                        <div class="d-flex justify-content-center py-1">
-                                                            <div class="separator-filter separator-dashed w-100 mx-2">
-                                                            </div>
-                                                        </div>
-                                                         <!--begin:Option-->
-                                                        <div class="d-flex justify-content-start align-items-center">
-                                                            <div>
-                                                                <span class="fa-stack fa-custom-lg">
-                                                                    <i class="fa-solid fa-square fa-stack-2x" style="color: #009ef7;"></i>
-                                                                    <i class="fas fa-route fa-stack-1x fa-inverse"></i>
-                                                                </span>
-                                                            </div>
-                                                            <div><span class="fw-bolder text-grey-50">CallRoute</span></div>
-                                                            <div class="ms-auto">
-                                                                <span class="form-check form-check-custom form-check-solid">
-                                                                    <input type="checkbox" class="form-check-input" name="category3" id="checkDefault1" value="C" disabled>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                         <!--end:Option-->
-                                                        <div class="d-flex justify-content-center py-1">
-                                                            <div class="separator-filter separator-solid w-100 mx-2">
-                                                            </div>
-                                                        </div>
-                                                        <!--begin:Option-->
-                                                        <div class="d-flex justify-content-start align-items-center">
-                                                            <div>
-                                                                <span class="fa-stack fa-custom-lg">
-                                                                    <i class="fa-solid fa-square fa-stack-2x" style="color: #f1416c;"></i>
-                                                                    <i class="fas fa-chart-line  fa-stack-1x fa-inverse"></i>
-                                                                </span>
-                                                            </div>
-                                                            <div><span class="fw-bolder text-grey-50">IVR</span></div>
-                                                            <div class="ms-auto">
-                                                                <span class="form-check form-check-custom form-check-solid">
-                                                                    <input type="checkbox" class="form-check-input" name="category4" id="checkDefault1" value="DIVR" disabled>
-                                                                </span>
+                                                            <!--end:Option-->
+                                                            <div class="d-flex align-items-start flex-column ">
+                                                                <!-- <div class="d-flex justify-content-center py-1">
+                                                                    <div class="separator-filter separator-dashed w-100 mx-2">
+                                                                    </div>
+                                                                </div> -->
+                                                                 <!--begin:Option-->
+                                                                <div class="d-flex justify-content-start align-items-center pb-1">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #009ef7;"></i>
+                                                                            <i class="fas fa-route fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">CallRoute</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category3" id="checkDefault1" value="C" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                 <!--end:Option-->
+                                                                <!-- <div class="d-flex justify-content-center py-1">
+                                                                    <div class="separator-filter separator-solid w-100 mx-2">
+                                                                    </div>
+                                                                </div> -->
+                                                                <!--begin:Option-->
+                                                                <div class="d-flex justify-content-start align-items-center">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #f1416c;"></i>
+                                                                            <i class="fas fa-chart-line  fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">IVR</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category4" id="checkDefault1" value="DIVR" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!--end:Option-->
@@ -171,7 +188,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow fw-bolder" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fas fa-plus fa-fw fa-xs me-1"></i>Create</button>
+                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow-sm fw-bolder" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fas fa-plus fa-fw fa-xs me-1"></i>Create</button>
                                         <div class="modal fade" id="modalLarge" tabindex="-1" aria-labelledby="modalLargeTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
@@ -241,17 +258,17 @@
                                             <div class="d-flex me-auto">
                                                 <a href="/news/{{ article.get_absolute_url }}" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
                                             </div>
-                                            <ul class="d-flex justify-content-end align-items-end list-unstyled mt-auto">
-                                                <li class="d-flex align-items-end align-items-end me-3">
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
                                                     <i class="fas fa-user fa-fw me-1"></i>
                                                     <small>{{ article.author }}</small>
                                                 </li>
-                                                <li class="d-flex align-items-end me-2">
+                                                <li class="d-flex align-items-center justify-content-center me-2">
                                                     <i class="fas fa-calendar-day fa-fw me-1"></i>
                                                     <small>{% if article.generatecommentcount == '0' %} Today {% else %} <span>{{article.generatecommentcount}} d.</span> {% endif %}</small>
                                                     <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
                                                 </li>
-                                                <li class="d-flex align-items-end me-1">
+                                                <li class="d-flex align-items-center me-1">
                                                     <i class="fa-regular fa-comment fa-fw me-1"></i>
                                                     <small>{{ article.generatecommentcount }}</small>
                                                 </li>

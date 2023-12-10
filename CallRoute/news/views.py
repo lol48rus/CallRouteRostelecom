@@ -8,6 +8,7 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib import messages
+import json
 # Create your views here.
 
 #generic класс
@@ -126,6 +127,14 @@ def news(request):
 
                     return redirect('news_index')  # Перенаправляем на страницу новостей
                     # form.save()
+        elif typename == 'SearchShow':  #отображаемые из поиска
+            print('typename:', typename)
+            search_value = request.POST.get('search')
+            print('postvalue:',request.POST.get('search'))
+            print('type_postvalue',type(request.POST.get('search')))
+            articles = Article.objects.filter(title__icontains=search_value)
+            # articles = Article.objects.filter(self=request.POST.get('value'))
+
     else: #если страница открывается впервые
         selected_author = 0
         selected_category = 0
@@ -277,3 +286,19 @@ def create_article(request):
         form = ArticleForm() #пустая форма
 
     return render(request, 'news/create_article.html', {'form': form})
+
+
+#URL:    path('search_auto/', views.search_auto, name='search_auto'),
+def search_auto(request):
+    print('вызов функции')
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        q = request.GET.get('term','')
+        articles = Article.objects.filter(title__icontains=q)
+        results =[]
+        for a in articles:
+            results.append(a.title)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data,mimetype)

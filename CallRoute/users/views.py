@@ -5,25 +5,66 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.contrib.auth.models import Group
+from .forms import CustomUserCreationForm
 # Create your views here.
 
 
 def register(request):
     if request.method == 'POST':
+        print('вошли в register')
         form = UserCreationForm(request.POST)
+        # print(form)
         if form.is_valid():
+            print('форма валид')
             user = form.save() #появляется новый юзер
             group = Group.objects.get(name='Authors')
             user.groups.add(group)
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-            authenticate(username=username, password=authenticate)
+            print(form.cleaned_data)
+            authenticate(username=username, password=password)
             messages.success(request, f'{username} registered!')
             return redirect('home')
     else:
         form = UserCreationForm()
     context = {'form': form}
     return render(request, 'users/register.html', context)
+
+
+def register_custom(request):
+    print('вошли в register_custom')
+    if request.POST == 'POST':
+        form = CustomUserCreationForm()
+        print(form)
+        if form.is_valid():
+            print('форма валид')
+            form.save()
+            return redirect('home')
+    else:
+        form = CustomUserCreationForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'users/register.html', context)
+
+# if request.method == 'POST':
+#         print('вошли в register')
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             print('форма валид')
+#             user = form.save() #появляется новый юзер
+#             group = Group.objects.get(name='Authors')
+#             user.groups.add(group)
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password1')
+#             authenticate(username=username, password=authenticate)
+#             messages.success(request, f'{username} registered!')
+#             return redirect('home')
+#     else:
+#         form = UserCreationForm()
+#     context = {'form': form}
+#     return render(request, 'users/register.html', context)
+
 
 def index(request):
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users',
     'calldetail',
     'icmitems',
+    'dashboard',
     'debug_toolbar',
     'crispy_forms',
     'crispy_bootstrap5'

@@ -111,6 +111,7 @@ def news(request):
                 articles = articles.filter(category__icontains=category_list[selected_category-1][0])
         elif typename == 'SaveArticle': #сохраняем статью
             form = ArticleForm(request.POST)
+            print('typename', typename)
             if form.is_valid():
                 current_user = request.user
                 if current_user != None:  # проверка, что юзер не аноним

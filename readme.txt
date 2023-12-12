@@ -7,3 +7,17 @@ http://127.0.0.1:8000/faq/
 http://127.0.0.1:8000/profile/
 http://127.0.0.1:8000/login/
 http://127.0.0.1:8000/register/
+
+ДЗ №2
+/*
+logopass_admin:
+            Admin
+            12345678
+logopass_demouser:
+            DemoUser
+            12345678Aa
+*/
+
+http://127.0.0.1:8000/news/
+http://127.0.0.1:8000/users/login
+http://127.0.0.1:8000/users/register

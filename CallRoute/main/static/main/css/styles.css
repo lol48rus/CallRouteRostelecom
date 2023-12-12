@@ -11386,6 +11386,7 @@ body {
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
     padding-left: 225px;
     top: 56px;
+    background-color: #F5F8FA;
 }
 
 #layoutError {
@@ -11919,10 +11920,10 @@ body {
 }
 
 .card.light-hoverable:hover {
-    transition: all 0.2s ease !important;
-    -webkit-transform: scale(1.1) !important;
-    -ms-transform: scale(1.1) !important;
-    transform: scale(1.1) !important;
+    transition: all 0.4s ease !important;
+    -webkit-transform: scale(1.05) !important;
+    -ms-transform: scale(1.05) !important;
+    transform: scale(1.05) !important;
     z-index: 2 !important;
 }
 

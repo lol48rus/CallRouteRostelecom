@@ -12,7 +12,7 @@
                     <!-- Write your web page content here -->
                     <div class="container-fluid px-4">
                         <!-- begin: HeaderMenu -->
-                        <div class="row rounded shadow-sm my-3" style="background-color: #f8f9fc;">
+                        <div class="row rounded shadow-sm my-3" style="background-color: #ebeef7;">
                             <div class="col-12">
                                 <div class="d-flex justify-content-end py-2">
                                     <div class="me-auto">
@@ -204,6 +204,7 @@
 														<!--end::Description-->
 														<!--в обязательном порядке указываем enctype-->
                                                         <form method="post" class="contact_form" enctype="multipart/form-data">
+                                                            <input type="hidden" name="name" value="SaveArticle">
                                                             {% csrf_token %}
                                                             {{ formArticle|crispy }}
                                                             {{ image_form|crispy }}

@@ -27,6 +27,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('profile/update', views.profile_update, name='profile_update'),
     path('register', views.register, name='register'),
+    # path('register', views.register_custom, name='register'),
     path('login', auth_views.LoginView.as_view(
             template_name='users/login.html'
             ), name='login'),

@@ -264,6 +264,10 @@
                                                     <i class="fas fa-user fa-fw me-1"></i>
                                                     <small>{{ article.author }}</small>
                                                 </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small>{{ article.get_views }}</small>
+                                                </li>
                                                 <li class="d-flex align-items-center justify-content-center me-2">
                                                     <i class="fas fa-calendar-day fa-fw me-1"></i>
                                                     <small>{% if article.generatecommentcount == '0' %} Today {% else %} <span>{{article.generatecommentcount}} d.</span> {% endif %}</small>

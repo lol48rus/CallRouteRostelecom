@@ -11,8 +11,9 @@ from django.contrib import messages
 import json
 # Create your views here.
 
+from .utils import ViewCountMixin
 #generic класс
-class ArticleDetailView(DetailView):
+class ArticleDetailView(ViewCountMixin, DetailView): #ViewCountMixin - миксин счетчика просмотра новостей
     model = Article
     template_name = 'news/generic_detail.html'
     context_object_name = 'article'
@@ -257,14 +258,18 @@ def detail(request,id):
                }
     return render(request, 'news/detail.html', context)
 
+
 #только залогиненные пользователи. Редирект на главную страницу
-#@login_required(login_url="/")
+from django.conf import settings
+
+
+@login_required(login_url=settings.LOGIN_URL)
 def create_article(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES) #request.FILES - тут хранятся файлы
         if form.is_valid():
             current_user = request.user
-            if current_user != None: #проверка, что юзер не аноним
+            if current_user.id != None: #проверка, что юзер не аноним
                 new_article = form.save(commit=False) #чтобы не записывалась сразу в БД
                 new_article.author = current_user
                 new_article.save() #сохраняем в БД
@@ -302,4 +307,6 @@ def search_auto(request):
     else:
         data = 'fail'
     mimetype = 'application/json'
-    return HttpResponse(data,mimetype)
+    return HttpResponse(data, mimetype)
+
+

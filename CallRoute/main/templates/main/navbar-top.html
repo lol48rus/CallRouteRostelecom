@@ -13,15 +13,17 @@
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div> -->
         </form>
-
+        {% load users_extras %}
         <!-- Navbar News-->
-        <a class="btn btn-light-info btn-sm position-relative fw-bolder shadow" href="{% url 'news_index' %}">
-            News
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                3+
-                <span class="visually-hidden">unread messages</span>
-            </span>
-        </a>
+        {% if request.user|has_group:"Authors" %}
+            <a class="btn btn-light-info btn-sm position-relative fw-bolder shadow" href="{% url 'news_index' %}">
+                News
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    3+
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </a>
+        {% endif %}
 
         <!-- Navbar Profile-->
 

@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="card-footer small text-muted text-end">
                                     <span>Updated <strong>{{ article.shortdatestr}}</strong> by <strong> {{ article.author }} </strong></span>
-                                    <a class="btn btn-danger" href="{% url 'news_delete' article.pk %}">Удалить</a>
+                                    <a class="btn btn-danger" href="{% url 'news_delete' article.id %}">Удалить</a>
                                     <a class="btn btn-warning" href="{% url 'news_update' article.pk %}">Редактировать</a>
                                 </div>
 

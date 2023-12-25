@@ -13,6 +13,16 @@
                             <form method="POST">
                                 {% csrf_token %}
                                 {{ form|crispy }}
+                                <div class="form-check">
+                                    <div>
+                                        <input class="form-check-input" type="radio" id="author" name="account_type" value="author"/>
+                                        <label class="form-check-label" for="author">Автор</label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="radio" id="reader" name="account_type" value="reader"/>
+                                        <label class="form-check-label" for="reader">Читатель</label>
+                                    </div>
+                                </div>
                                 <input type="submit" class="btn btn-success" value="Send">
                             </form>
                         </div>

@@ -1,6 +1,6 @@
 
 {% include 'main/header.html' %}
-
+{% load crispy_forms_tags %}
 <body class="sb-nav-fixed">
     {% include 'main/navbar-top.html' %}
         <div id="layoutSidenav">
@@ -8,7 +8,397 @@
             <div id="layoutSidenav_content">
                 <main>
                 <!-- Write your web page content here -->
-                <h1>Dashboard page</h1>
+                    <div class="container-fluid px-4">
+                        <!-- begin: HeaderMenu -->
+                        <div class="row rounded shadow-sm my-3" style="background-color: #ebeef7;">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end py-2">
+                                    <div class="me-auto">
+                                        <h5 class="m-0 fw-bold text-warning"><i class="fa-solid fa-rss me-1"></i>News</h5>
+                                    </div>
+                                    <div class="search me-2">
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="input-group input-group-sm shadow-sm">
+                                                <input type="hidden" name="name" value="SearchShow">
+                                                <input class="form-control rounded" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" id="search_input" name="search"/>
+                                                <button class="btn btn-light-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search fa-fw "></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="me-2">
+                                        <div class="dropdown">
+                                            <!-- <button type="submit" class="btn btn-light-primary fw-bolder"><i class="fas fa-filter fa-fw fa-xs me-1"></i>Filter</button> -->
+                                            <button class="btn btn-light-primary btn-sm fw-bolder shadow-sm" type="button" id="dropdownMenuClickableInside" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-filter fa-fw fa-xs me-1"></i>Filter
+                                            </button>
+                                            <form class="dropdown-menu dropdown-menu-end p-3 menu-sub-dropdown shadow w-300px w-md-300px bg-light" aria-labelledby="dropdownMenuClickableInside" method="POST">
+                                                <input type="hidden" name="name" value="FilterApply">
+                                                 {% csrf_token %}
+                                                <div class="pb-2">
+                                                    <div class="fs-6 text-dark fw-bold">Filter Options</div>
+                                                </div>
+                                                <!--end::Header-->
+                                                <!--begin::Menu separator-->
+                                                <div class="separator border-gray-200"></div>
+                                                <!--end::Menu separator-->
+                                                <!--begin::Form-->
+                                                <div class="py-1">
+                                                    <!--begin::Input group-->
+                                                    <div class="">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label fw-bold text-muted">Author:</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <div>
+                                                            <select class="form-select w-75" name="author_filter">
+                                                                <option value="0">All authors</option>
+                                                                {% for author in author_list %}
+                                                                    <option value="{{ author.id }}"{% if selected_author == author.id %} selected {% endif %} >{{ author }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="mt-3">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label fw-bold text-muted">Category:</label>
+                                                        <!--begin::Input-->
+                                                        <div>
+                                                            <select class="form-select w-75" name="category_filter">
+                                                                <option value="0">All categories</option>
+                                                                {% for category in category_list %}
+                                                                    <option value="{{ forloop.counter }}"{% if selected_category == forloop.counter %} selected {% endif %} >{{ category.1 }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <!--begin:Option-->
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="d-flex align-items-start flex-column">
+                                                                <div class="d-flex justify-content-start align-items-center pb-1">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #7239ea;"></i>
+                                                                            <i class="fa fas fa-rss fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">Global</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category1" id="checkDefault1" value="G" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                 <!--end:Option-->
+                                                                <!-- <div class="d-flex justify-content-center py-1">
+                                                                    <div class="separator-filter separator-dashed w-100 mx-2">
+                                                                    </div>
+                                                                </div> -->
+                                                                 <!--begin:Option-->
+                                                                <div class="d-flex justify-content-start align-items-center">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #50cd89;"></i>
+                                                                            <i class="fas fa-table fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">Report</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category2" id="checkDefault1" value="R" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end:Option-->
+                                                            <div class="d-flex align-items-start flex-column ">
+                                                                <!-- <div class="d-flex justify-content-center py-1">
+                                                                    <div class="separator-filter separator-dashed w-100 mx-2">
+                                                                    </div>
+                                                                </div> -->
+                                                                 <!--begin:Option-->
+                                                                <div class="d-flex justify-content-start align-items-center pb-1">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #009ef7;"></i>
+                                                                            <i class="fas fa-route fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">CallRoute</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category3" id="checkDefault1" value="C" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                 <!--end:Option-->
+                                                                <!-- <div class="d-flex justify-content-center py-1">
+                                                                    <div class="separator-filter separator-solid w-100 mx-2">
+                                                                    </div>
+                                                                </div> -->
+                                                                <!--begin:Option-->
+                                                                <div class="d-flex justify-content-start align-items-center">
+                                                                    <div>
+                                                                        <span class="fa-stack fa-custom-lg">
+                                                                            <i class="fa-solid fa-square fa-stack-2x" style="color: #f1416c;"></i>
+                                                                            <i class="fas fa-chart-line  fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div><span class="fw-bolder text-grey-50">IVR</span></div>
+                                                                    <div class="ms-2">
+                                                                        <span class="form-check form-check-custom form-check-solid">
+                                                                            <input type="checkbox" class="form-check-input" name="category4" id="checkDefault1" value="DIVR" disabled>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--end:Option-->
+                                                    </div>
+                                                    <!-- </div> -->
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="mt-3">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label fw-bold text-muted">Order by Date:</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Switch-->
+                                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
+                                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" disabled/>
+                                                            <label class="form-check-label">Enabled</label>
+                                                        </div>
+                                                        <!--end::Switch-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Actions-->
+                                                    <div class="d-flex justify-content-end pt-4">
+                                                        <button type="reset" class="btn btn-sm btn-secondary me-2">Reset</button>
+                                                        <button type="submit" class="btn btn-sm btn-custom-primary">Apply</button>
+                                                    </div>
+                                                    <!--end::Actions-->
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: HeaderMenu -->
+
+                        <!-- begin: DashboardContent -->
+
+                        <!-- begin: DashboardContent - row bars -->
+                        <div class="row g-4 g-xl-8 pb-3">
+                            <div class="col-xl-9 col-lg-8 col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div>
+                                            <div class="d-flex flex-wrap">
+                                                <div class="me-2">
+                                                    <a href="#" class="text-dark text-hover-primary fw-bolder fs-3">Generate Reports</a>
+                                                    <div class="text-muted fs-7 fw-bold">Finance and accounting reports</div>
+                                                </div>
+                                                <div class="ms-auto fw-bolder fs-3 text-primary">$24,500</div>
+                                            </div>
+                                            <div> <!-- style="height: 150px; min-height: 150px;" -->
+                                                <!-- <canvas id="LineStuckedBarChart"></canvas> -->
+                                                <canvas id="myChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <div class="card">
+                                    <p>Stat1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: DashboardContent - row bars -->
+
+                        <!-- begin: DashboardContent - row cards and sl -->
+                        <div class="row g-4 g-xl-8 pb-3">
+                            <div class="col-xl-4 col-lg-8 col-md-6">
+                                <div class="card w-50">
+                                    <div class="card-body">
+                                        <div>
+                                            <!-- <canvas id="myChart"></canvas> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-4 col-md-6">
+                                <div class="card border-0">
+                                    <div>
+                                            <canvas id="ChartLineFill"></canvas>
+                                        </div>
+                                     <!-- <div class="card-body">
+
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: DashboardContent - row cards and sl  -->
+
+                        <!-- begin: DashboardContent - row agent table realtime-->
+                        <div class="row g-4 g-xl-8 pb-3">
+                            <div class="col-xl-3 col-lg-3 col-md-3">
+                                <div class="card">
+                                    <p>Bars</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <div class="card shadow  border-0">
+                                    <div class="card-header bg-white border-bottom-0  m-2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-start flex-column">
+                                                <!-- <h5 class="m-0 fw-bold text-primary"><i class="fa-solid fa-users me-1"></i>Users</h5> -->
+                                                <span class="card-label fw-bolder fs-6"><i class="fa-solid fa-users me-1"></i>Agent's statistics</span>
+                                                <span class="text-muted mt-1 fw-bold">Over 15 agents</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body py-1">
+                                        <!--begin::Table container-->
+                                        <div class="table-responsive">
+                                    <!--begin::Table-->
+                                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                        <!--begin::Table head-->
+                                        <thead>
+                                            <tr class="fw-bolder text-muted">
+                                                <th class="w-25px">№
+                                                </th>
+                                                <th class="min-w-150px">ANI</th>
+                                                <th class="min-w-150px">DigitsDialed</th>
+                                                <th class="min-w-150px">Login</th>
+                                                <th class="min-w-150px">Extension</th>
+                                                <th class="min-w-150px">SkillGroup</th>
+                                                <th class="min-w-150px">CallResult</th>
+                                                <th class="min-w-150px">FinalDestination</th>
+                                                <th class="min-w-150px">Queue time</th>
+                                                <th class="min-w-150px">RingTime</th>
+                                                <th class="min-w-150px">TalkTime</th>
+                                                <th class="min-w-150px text-end">Survey</th>
+                                            </tr>
+                                        </thead>
+                                        <!--end::Table head-->
+                                        <!--begin::Table body-->
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span class="text-muted fw-bold d-block fs-6">1</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-secondary">+7-995-675-89-24</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-danger">8-800-450-0150</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="d-flex justify-content-center flex-column">
+                                                            <div><span class="text-muted fw-bolder">Ivanov Ivan</span></div>
+                                                            <div><span class="badge rounded-pill bg-success">SG_First_Line</span></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">7654</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-danger">8-800-450-0150</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">Transfer</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-start flex-column">
+                                                        <div><span class="badge rounded-pill bg-success">SG_2LTP</span></div>
+                                                        <div><span class="badge rounded-pill bg-secondary">3174</span></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">34</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">8</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">56</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="d-flex justify-content-center flex-column">
+                                                            <div><span class="text-muted fw-bolder">4</span></div>
+                                                            <div class="d-flex justify-content-end small-ratings align-items-end">
+                                                                <i class="fa fa-star rating-color"></i>
+                                                                <i class="fa fa-star rating-color"></i>
+                                                                <i class="fa fa-star rating-color"></i>
+                                                                <i class="fa fa-star rating-color"></i>
+                                                                <i class="fa-regular fa-star rating-color"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="text-muted fw-bold d-block fs-6">2</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-secondary">+7-995-675-89-24</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-danger">3174</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="d-flex justify-content-center flex-column">
+                                                            <div><span class="text-muted fw-bolder">Illarionova Tatyana</span></div>
+                                                            <div><span class="badge rounded-pill bg-success">SG_2LTP</span></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">7654</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge rounded-pill bg-danger">8-800-450-0150</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">Transfer</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-start flex-column">
+                                                        <div><span class="badge rounded-pill bg-danger">IVR - PostCallServey</span></div>
+                                                        <div><span class="badge rounded-pill bg-secondary">3100</span></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">12</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">7</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <span class="text-muted fw-bold text-muted d-block fs-6">189</span>
+                                                </td>
+                                            </tr>
+                                        <tbody>
+                                    </table>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: DashboardContent - row agent table realtime -->
+                        <!-- end: DashboardContent -->
+                    </div>
                 </main>
 
 {% block footer %} {% include 'main/footer.html' %} {% endblock %}

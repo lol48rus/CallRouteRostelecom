@@ -12,9 +12,9 @@
                         <!-- begin: HeaderMenu -->
                         <div class="row rounded shadow-sm my-3" style="background-color: #ebeef7;">
                             <div class="col-12">
-                                <div class="d-flex justify-content-end py-2">
+                                <div class="d-flex justify-content-end align-items-center py-2">
                                     <div class="me-auto">
-                                        <h5 class="m-0 fw-bold text-warning"><i class="fa-solid fa-rss me-1"></i>News</h5>
+                                        <h5 class="m-0 fw-bold text-primary"><i class="fa-solid fa-chart-column me-1"></i>Dashboard</h5>
                                     </div>
                                     <div class="search me-2">
                                         <form method="POST">
@@ -194,16 +194,17 @@
 
                         <!-- begin: DashboardContent - row bars -->
                         <div class="row g-4 g-xl-8 pb-3">
-                            <div class="col-xl-9 col-lg-8 col-md-6">
+                            <div class="col-xl-6 col-lg-6 col-md-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <div>
                                             <div class="d-flex flex-wrap">
                                                 <div class="me-2">
-                                                    <a href="#" class="text-dark text-hover-primary fw-bolder fs-3">Generate Reports</a>
-                                                    <div class="text-muted fs-7 fw-bold">Finance and accounting reports</div>
+                                                    <h5 class="text-primary fw-bolder fs-3">Queue</h5>
+                                                    <div class="text-muted fs-7 fw-bold">Total calls in queue</div>
                                                 </div>
-                                                <div class="ms-auto fw-bolder fs-3 text-primary">$24,500</div>
+                                                <div class="ms-auto fw-bolder fs-3 text-primary">128<i class="fa-solid fa-arrow-trend-up text-success mx-1"></i><div class="text-muted fs-5">3,42%</div></div>
+
                                             </div>
                                             <div> <!-- style="height: 150px; min-height: 150px;" -->
                                                 <!-- <canvas id="LineStuckedBarChart"></canvas> -->
@@ -215,7 +216,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="card">
-                                    <p>Stat1</p>
+                                    <p>Stat by regions</p>
                                 </div>
                             </div>
                         </div>

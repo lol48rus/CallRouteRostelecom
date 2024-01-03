@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 from .models import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
@@ -161,4 +161,60 @@ def profile_update(request):
     else:
         context = {'account_form':AccountUpdateForm(instance=account),
                    'user_form':UserUpdateForm(instance=user)}
-    return render(request,'users/edit_profile.html',context)
+    return render(request, 'users/edit_profile.html',context)
+
+
+from news.models import Article
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def add_to_favorites(request, id):
+    article = Article.objects.get(id=id)
+    #проверяем есть ли такая закладка с этой новостью
+    bookmark = FavoriteArticle.objects.filter(user=request.user.id, article=article)
+    if bookmark.exists():
+        bookmark.delete()
+        messages.warning(request,f'Новость {article.title} удалена из закладок')
+    else:
+        bookmark = FavoriteArticle.objects.create(user=request.user, article=article)
+        messages.success(request, f'Новость {article.title} добавлена в закладки')
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+
+from users.models import FavoriteArticle
+def favorite_news(request):
+
+    category_list = Article.categories
+    # fav_list = FavoriteArticle.article
+    # print(fav_list)
+    author = User.objects.get(id=request.user.id)
+    print(author)
+
+    selected_author = author.id
+    articles = Article.objects.filter(author=selected_author)
+    # fav_articles = FavoriteArticle.objects.filter(user=selected_author)
+    # print(fav_articles)
+    #articles = Article.objects.filter(pk in)
+    # articles = Article.objects.filter(id__icontains=fav_list[fav_articles - 1][0])
+
+    # Новый обработчик
+    if request.method == "POST":
+        typename = request.POST.get('name')
+        print('typename', typename)
+        if typename == 'FilterApply':  # фильтруем новости
+            selected_category = int(request.POST.get('category_filter'))
+            if selected_category != 0:  # фильтруем найденные по авторам результаты по категориям
+                articles = articles.filter(category__icontains=category_list[selected_category - 1][0])
+    else:  # если страница открывается впервые
+        # selected_author = 0
+        selected_category = 0
+        # articles = Article.objects.all()
+
+    context = {'articles': articles,
+               'category_list': category_list,
+               'selected_author': selected_author,
+               'selected_category': selected_category,
+               }
+
+    return render(request, 'users/favorite_news.html', context)

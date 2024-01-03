@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from .import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -34,4 +34,6 @@ urlpatterns = [
     path('logout', auth_views.LogoutView.as_view(
             template_name='users/logout.html'
             ), name='logout'),
+    path('favorites/<int:id>', views.add_to_favorites, name='favorites'),
+    path('favorite_news/', views.favorite_news, name='favorite_news'),
 ]

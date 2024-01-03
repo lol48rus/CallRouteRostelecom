@@ -24,5 +24,14 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 class CustomUserAdmin(UserAdmin):
     actions = [make_author]
+
+
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
+
+
+class FavoriteArticleAdmin(admin.ModelAdmin):
+    list_display = ['article', 'user', 'create_at']
+
+
+admin.site.register(FavoriteArticle, FavoriteArticleAdmin)

@@ -34,7 +34,7 @@
                     <!-- <small class="text-muted">{{ request.user.username }}</small> -->
                     <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Profile</span></a></li>
-                        <li><a class="dropdown-item" href="#!"><i class="fas fa-list fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Activity Log</span></a></li>
+                        <li><a class="dropdown-item" href="{% url 'favorite_news' %}"><i class="fa-solid fa-bookmark fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Favorites</span></a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li>
                             <a href="{% url 'logout' %}" class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 profile-icon"></i><span class="text-muted">Logout</span></a>

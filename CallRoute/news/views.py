@@ -310,3 +310,15 @@ def search_auto(request):
     return HttpResponse(data, mimetype)
 
 
+from django.core.paginator import Paginator
+def pagination(request):
+    articles = Article.objects.all()
+    p = Paginator(articles, 2)
+    page_number = request.GET.get('page')
+    page_obj = p.get_page(page_number)
+    print(page_obj)
+    context = {'articles': page_obj}
+    return render(request, 'news/news.html', context)
+
+
+

@@ -14,7 +14,7 @@
                         <!-- begin: HeaderMenu -->
                         <div class="row rounded shadow-sm my-3" style="background-color: #ebeef7;">
                             <div class="col-12">
-                                <div class="d-flex justify-content-end align-items-center py-2">
+                                <div class="d-flex justify-content-end py-2">
                                     <div class="me-auto">
                                         <h5 class="m-0 fw-bold text-warning"><i class="fa-solid fa-rss me-1"></i>News</h5>
                                     </div>
@@ -230,29 +230,27 @@
                         {% endif %}
                         <!-- end: Alert -->
 
-
-                            <div class="row">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        {% if articles.has_previous %}
-                                            <li class="page-item"><a class="page-link" href="?page={{ articles.previous_page_number }}">Previous</a></li>
+                        <div class="row">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    {% if articles.has_previous %}
+                                        <li class="page-item"><a class="page-link" href="?page={{ articles.previous_page_number }}">Previous</a></li>
+                                    {% endif %}
+                                    {% for p in articles.paginator.page_range %}
+                                        {% if articles.number == p %}
+                                            <li class="page-item"><a class="page-link"  href="?page={{ p }}">{{ p }}</a></li>
+                                        {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
                                         {% endif %}
-                                        {% for p in articles.paginator.page_range %}
-                                            {% if articles.number == p %}
-                                                <li class="page-item"><a class="page-link"  href="?page={{ p }}">{{ p }}</a></li>
-                                            {% else %}
-                                                <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
-                                            {% endif %}
-                                        {% endfor %}
-                                        <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-                                        {% if articles.has_next %}
-                                            <li class="page-item"><a class="page-link" href="?page={{ articles.next_page_number }}">Next</a></li>
-                                        {% endif %}
-                                    </ul>
-                                </nav>
-                            </div>
-
+                                    {% endfor %}
+                                    <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                                    {% if articles.has_next %}
+                                        <li class="page-item"><a class="page-link" href="?page={{ articles.next_page_number }}">Next</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
 
                         <!--begin::News from DB-->
                         <!--begin::Row-->
@@ -267,10 +265,9 @@
                                             <div>
                                                  {% if article.category == 'R' %} <i class="fas fa-table fa-2xl text-white"></i> {% elif article.category == 'DIVR' %} <i class="fas fa-chart-line fa-2xl text-white"></i>
                                                      {% elif article.category == 'G' %} <i class="fas fa-rss fa-2xl text-white"></i> {% elif article.category == 'C' %} <i class="fas fa-route fa-2xl text-white"></i> {% endif %}
-
+                                                 <a href=" {% url 'favorites' article.pk %}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="fa-regular fa-bookmark"></i></a>
                                             </div>
                                                 <div class="ms-auto">
-                                                    <a href=" {% url 'favorites' article.pk %}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
                                                     <a href="/news/update/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
                                                 </div>
                                             </div>

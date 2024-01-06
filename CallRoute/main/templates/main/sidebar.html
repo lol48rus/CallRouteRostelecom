@@ -1,16 +1,16 @@
+{% load i18n %}
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu"> <!-- overflow-hidden -->
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">{% trans 'Core' %}</div>
-                <a class="nav-link" href="/dashboard/" {% if request.path == '/dashboard/' %} class="link-custom-active" aria-current="page" {% endif %}>
+                <a class="nav-link" href="{% url 'dashboard_index' %}" {% if request.path == '/dashboard/' %} class="link-custom-active" aria-current="page" {% endif %}>
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
                 <a class="nav-link link-active" href="{% url 'calldetail_index' %}" {% if request.resolver_match.view_name == 'calldetail_index' %} class="link-custom-active" aria-current="page" {% endif %}>
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-route"></i></div>
-
-                    Call Route
+                    {% trans 'Call Route' %}
                 </a>
 
                 <hr class="sidebar-divider mb-1">

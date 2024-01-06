@@ -13,6 +13,26 @@
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div> -->
         </form>
+
+
+        {% load i18n %}
+        <li class="dropdown">
+            <form method="POST" action="{% url 'selectlanguage' %}">
+                {% csrf_token %}
+                <select name="language" onchange="submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                        {{ language.name_local }} ({{language.code }})
+                    </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </li>
+
+
         {% load users_extras %}
         <!-- Navbar News-->
         {% if request.user|has_group:"Authors" %}

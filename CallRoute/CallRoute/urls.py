@@ -19,17 +19,23 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 import main.views as main_views
+from django.conf.urls import i18n
 
 handler404 = main_views.custom_404
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('selectlanguage/', main_views.selectlanguage, name='selectlanguage'),
+    path('i18n/', include('django.conf.urls.i18n')),
+
+    ]
+urlpatterns += i18n.i18n_patterns(
     path('', include('main.urls')),
     path('news/', include('news.urls')),
     path('users/', include('users.urls')),
     path('calldetail/', include('calldetail.urls')),
     path('icmitems/', include('icmitems.urls')),
     path('dashboard/', include('dashboard.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #чтобы работали медиа файлы
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #чтобы работали медиа файлы
 
 if settings.DEBUG:
     import debug_toolbar

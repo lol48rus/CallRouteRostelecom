@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -58,7 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware'
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 ]
 INTERNAL_IPS = ['127.0.0.1']
 ROOT_URLCONF = 'CallRoute.urls'
@@ -116,6 +117,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+    ('en', ('English')),
+    ('ru', ('Russian'))
+]
+
+LOCALE_PATH = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 TIME_ZONE = 'UTC'
 

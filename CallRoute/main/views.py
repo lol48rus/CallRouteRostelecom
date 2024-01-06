@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 from .models import News
 from .forms import *
@@ -111,3 +111,22 @@ def index_test(request):
 
 def blank(request):
     return render(request, 'main/blank.html')
+
+
+from django.utils import translation
+from django.conf import settings
+def selectlanguage(request):
+    #в 25 символов входит корневой каталог + код языка из двух букв
+    url = request.META.get('HTTP_REFERER')[25:]
+    print(request.META)
+    print('URL:', url)
+    if request.method == 'POST':
+        current_language = translation.get_language()
+        print('До:', current_language)
+        lang = request.POST.get('language')
+        translation.activate(lang)
+        print('После:', translation.get_language())
+        response = HttpResponse('')
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+        print('/' + lang + '/' + url)
+        return HttpResponseRedirect('/' + lang + '/' + url)

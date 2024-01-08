@@ -32,7 +32,7 @@ class ArticleForm(ModelForm):
         fields = ['title', 'anouncement', 'text', 'tags', 'author', 'category']
         widgets = {
             'anouncement': Textarea(attrs={'cols': 80, 'rows':2}),
-            'text': Textarea(attrs={'cols': 80, 'rows': 2}), #'style':'width:30%' - можно назначить стайл, класс
+            'text': Textarea(attrs={'cols': 80, 'rows': 3}), #'style':'width:30%' - можно назначить стайл, класс
             'tags': CheckboxSelectMultiple(),
             'category': RadioSelect()
             #'author': Select()

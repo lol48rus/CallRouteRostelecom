@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-06 11:17+0300\n"
+"POT-Creation-Date: 2024-01-06 20:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,18 +20,32 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\main\templates\main\body.html:24
+#: .\main\templates\main\body.html:25
 msgid "Dashboard"
 msgstr "Дашборд"
+
+#: .\main\templates\main\footer.html:7
+msgid "Copyright"
+msgstr "Права"
+
+#: .\main\templates\main\login.html:12 .\users\templates\users\login.html:20
+msgid "Sign In"
+msgstr "Авторизация"
 
 #: .\main\templates\main\sidebar.html:6
 msgid "Core"
 msgstr "Ядро"
 
 #: .\main\templates\main\sidebar.html:13
+#, fuzzy
+#| msgid "Call Route"
 msgid "Call Route"
 msgstr "Маршрутизация"
 
 #: .\main\validators.py:10
 msgid "%(email) has not allowed domain"
 msgstr ""
+
+#: .\users\templates\users\login.html:28
+msgid "Remember me"
+msgstr "Запомнить меня"

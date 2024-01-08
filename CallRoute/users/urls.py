@@ -36,4 +36,5 @@ urlpatterns = [
             ), name='logout'),
     path('favorites/<int:id>', views.add_to_favorites, name='favorites'),
     path('favorite_news/', views.favorite_news, name='favorite_news'),
+    path('password', views.password_update, name='password'),
 ]

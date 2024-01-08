@@ -22,6 +22,8 @@ import main.views as main_views
 from django.conf.urls import i18n
 
 handler404 = main_views.custom_404
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('selectlanguage/', main_views.selectlanguage, name='selectlanguage'),

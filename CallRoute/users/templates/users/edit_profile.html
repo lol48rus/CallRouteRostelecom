@@ -14,7 +14,7 @@
                         <div class="d-flex flex-column align-items-center pt-4"> <!-- justify-content-center vh-100 -->
                             <div class="card shadow-lg border-0 rounded-lg w-75">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Account's profile {{ request.user.username }}</h3>
+                                    <h3 class="text-center font-weight-light my-1">Account's profile {{ request.user.username }}</h3>
                                 </div>
                                 <div class="card-body">
                                     <form method="post" enctype="multipart/form-data">
@@ -64,23 +64,39 @@
                                                                 {{ account_form.nickname }}
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <h6 class="mb-0">Gender</h6>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <h6 class="mb-0">First Name</h6>
+                                                            </div>
+                                                            <div class="col-sm-9 text-secondary">
+                                                                {{ user_form.first_name }}
+                                                            </div>
                                                         </div>
-                                                        <div class="col-sm-9 text-secondary">
-                                                                {{ account_form.gender }}
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <h6 class="mb-0">Last Name</h6>
+                                                            </div>
+                                                            <div class="col-sm-9 text-secondary">
+                                                                {{ user_form.last_name }}
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <hr>
-
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <h6 class="mb-0">Gender</h6>
+                                                            </div>
+                                                            <div class="col-sm-9 text-secondary">
+                                                                    {{ account_form.gender }}
+                                                            </div>
+                                                        </div>
+                                                        <hr>
                                                     <div class="text-center">
                                                         <button class="btn btn-outline-success" style="margin-bottom:15px;"
                                                            href="{% url 'profile' %}"> Сохранить </button>
                                                         <a class="btn btn-outline-danger" style="margin-bottom:15px;"
-                                                           href="#"> Изменить пароль </a>
+                                                           href="{% url 'password' %}"> Изменить пароль </a>
                                                     </div>
                                                 </div>
                                             </div>

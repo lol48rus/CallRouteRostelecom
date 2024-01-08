@@ -12,6 +12,7 @@
 
         <!-- Charts -->
             <!-- Charts IndexCards-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
             <script src="{% static 'main/' %}js/index-cards/index-chart-bar.js"></script>
             <script src="{% static 'main/' %}js/index-cards/index-chart-line.js"></script>
             <script src="{% static 'main/' %}js/calldetail/chart-pie-agent.js"></script>
@@ -35,7 +36,8 @@
         <!-- end::Bootstrap DataTables -->
 
         <!-- begin::HTML5 export buttons -->
-        <!--         <script src="{% static 'main/' %}js/datatables/datatables.min.js"></script> -->
+        <!--<script src="{% static 'main/' %}js/datatables/datatables.min.js"></script> -->
+
         <script src="{% static 'main/' %}js/datatables/pdfmake.min.js"></script>
         <script src="{% static 'main/' %}js/datatables/vfs_fonts.js"></script>
         <script src="{% static 'main/' %}js/datatables/custom.js"></script>
@@ -47,8 +49,10 @@
         <!-- end::jQuery !-->
 
         <!-- begin::jQuery UI !-->
+
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
         <!-- end::jQuery UI !-->
 
 
@@ -68,3 +72,4 @@
             var selectedObj = ui.item;
           }
         </script>
+

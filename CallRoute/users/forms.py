@@ -53,6 +53,12 @@ class AccountUpdateForm(forms.ModelForm):
                                        'placeholder': 'nickname'}),
                    'gender': TextInput({'class': 'textinput form-control',
                                          'placeholder': 'gender'}),
+                   'first_name': TextInput({'class': 'textinput form-control',
+                                            'placeholder': 'First name'}),
+                   'last_name': TextInput({'class': 'textinput form-control',
+                                           'placeholder': 'Last name'}),
+                   'account_image': FileInput({'class': 'form-control',
+                                       'placeholder': 'image'})
                    }
 
 

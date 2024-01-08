@@ -188,7 +188,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow-sm fw-bolder" data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fas fa-plus fa-fw fa-xs me-1"></i>Create</button>
+                                        {% load users_extras %}
+                                        <button href="#" type="button" class="btn btn-light-primary btn-sm shadow-sm fw-bolder" {% if not request.user|has_group:"Authors" %} disabled {% endif %} data-bs-toggle="modal" data-bs-target="#modalLarge"><i class="fas fa-plus fa-fw fa-xs me-1"></i>Create</button>
                                         <div class="modal fade" id="modalLarge" tabindex="-1" aria-labelledby="modalLargeTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
@@ -203,7 +204,7 @@
 														</div>
 														<!--end::Description-->
 														<!--в обязательном порядке указываем enctype-->
-                                                        <form method="post" class="contact_form" enctype="multipart/form-data">
+                                                        <form method="post" class="contact_form" enctype="multipart/form-data" >
                                                             <input type="hidden" name="name" value="SaveArticle">
                                                             {% csrf_token %}
                                                             {{ formArticle|crispy }}
@@ -230,7 +231,8 @@
                         {% endif %}
                         <!-- end: Alert -->
 
-
+                        <!-- begin: Paginator -->
+                        {% if total_article > 1 %}
                             <div class="row">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination">
@@ -252,7 +254,8 @@
                                     </ul>
                                 </nav>
                             </div>
-
+                        {% endif %}
+                        <!-- end: Paginator -->
 
                         <!--begin::News from DB-->
                         <!--begin::Row-->
@@ -295,7 +298,7 @@
                                                     <i class="fa-solid fa-eye fa-fw me-1"></i>
                                                     <small>{{ article.get_views }}</small>
                                                 </li>
-                                                <li class="d-flex align-items-center justify-content-center me-2">
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
                                                     <i class="fas fa-calendar-day fa-fw me-1"></i>
                                                     <small>{% if article.generatecommentcount == '0' %} Today {% else %} <span>{{article.generatecommentcount}} d.</span> {% endif %}</small>
                                                     <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->

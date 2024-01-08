@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
+
+from django.utils import translation
+from django.conf import settings
 from .models import News
 from .forms import *
 
@@ -113,12 +116,12 @@ def blank(request):
     return render(request, 'main/blank.html')
 
 
-from django.utils import translation
-from django.conf import settings
+
 def selectlanguage(request):
     #в 25 символов входит корневой каталог + код языка из двух букв
+    print('Начало работы выбор языка')
     url = request.META.get('HTTP_REFERER')[25:]
-    print(request.META)
+    #print(request.META)
     print('URL:', url)
     if request.method == 'POST':
         current_language = translation.get_language()
@@ -129,4 +132,5 @@ def selectlanguage(request):
         response = HttpResponse('')
         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
         print('/' + lang + '/' + url)
+        print('Сработал выбор языка')
         return HttpResponseRedirect('/' + lang + '/' + url)

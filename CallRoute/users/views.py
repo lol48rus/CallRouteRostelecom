@@ -141,7 +141,7 @@ def profile(request):
     context = {'title': title
                }
 
-    return render(request, 'users/profile.html', context)
+    return render(request, 'users/profile_extend.html', context)
 
 
 from .forms import AccountUpdateForm, UserUpdateForm
@@ -218,3 +218,19 @@ def favorite_news(request):
                }
 
     return render(request, 'users/favorite_news.html', context)
+
+
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+def password_update(request):
+    user = request.user
+    form = PasswordChangeForm(user,request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            password_info = form.save()
+            update_session_auth_hash(request, password_info)
+            messages.success(request, 'Пароль успешно изменен')
+            return redirect('profile')
+
+    context = {"form": form}
+    return render(request, 'users/edit_password.html' ,context)

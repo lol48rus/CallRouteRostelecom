@@ -224,12 +224,20 @@ def news(request):
 
     # currentdatetime = datetime.datetime.now()
 
-    context = {'articles': articles,
+    articles = articles.order_by('-date')
+    total_article = len(articles)
+    p = Paginator(articles, 8)
+    page_number = request.GET.get('page')
+    page_obj = p.get_page(page_number)
+    print(page_obj)
+
+    context = {'articles': page_obj,
             'author_list': author_list,
             'category_list': category_list,
             'selected_author': selected_author,
             'selected_category': selected_category,
             'news': news,
+            'total_article': total_article,
             # 'today_articles': today_articles,
             # 'currentdatetime': currentdatetime,
             # 'mybirthdate': datetime.datetime(2004, 11, 18),
@@ -313,7 +321,7 @@ def search_auto(request):
 from django.core.paginator import Paginator
 def pagination(request):
     articles = Article.objects.all()
-    p = Paginator(articles, 2)
+    p = Paginator(articles, 8)
     page_number = request.GET.get('page')
     page_obj = p.get_page(page_number)
     print(page_obj)

@@ -12163,3 +12163,8 @@ body {
 .link-custom-active{
     color: #ffffff;!important;
 }
+
+.transicon{
+    width: 14px;
+    height: 14px;
+}

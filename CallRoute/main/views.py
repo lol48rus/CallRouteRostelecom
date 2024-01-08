@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
@@ -134,3 +134,7 @@ def selectlanguage(request):
         print('/' + lang + '/' + url)
         print('Сработал выбор языка')
         return HttpResponseRedirect('/' + lang + '/' + url)
+
+
+def language_redirect(request):
+    return redirect('home')

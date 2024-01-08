@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import MinLengthValidator
-from django.forms import ModelForm, Textarea, CheckboxSelectMultiple, Select, CheckboxInput, RadioSelect
+from django.forms import ModelForm, Textarea, CheckboxSelectMultiple, Select, CheckboxInput, RadioSelect, TextInput
 from .models import Article
 
 #Для работы с несколькими файлами
@@ -31,9 +31,10 @@ class ArticleForm(ModelForm):
         model = Article
         fields = ['title', 'anouncement', 'text', 'tags', 'author', 'category']
         widgets = {
-            'anouncement': Textarea(attrs={'cols': 80, 'rows':2}),
-            'text': Textarea(attrs={'cols': 80, 'rows': 3}), #'style':'width:30%' - можно назначить стайл, класс
+            'title': TextInput(attrs={'class': 'form-control'}),
+            'anouncement': Textarea(attrs={'cols': 80, 'rows':2, 'class': 'form-control'}),
+            'text': Textarea(attrs={'cols': 80, 'rows': 3, 'class': 'form-control'}), #'style':'width:30%' - можно назначить стайл, класс
             'tags': CheckboxSelectMultiple(),
-            'category': RadioSelect()
-            #'author': Select()
+            'category': RadioSelect(),
+            'author': Select(attrs={'class': 'form-control'})
         }

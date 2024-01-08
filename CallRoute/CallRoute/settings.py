@@ -23,11 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o2you92vm!fu2tyou6t7%!3t*u_$i+b^-npakauz^fml3v621='
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 ALLOWED_HOSTS = []
 
-#DEBUG = False
-#ALLOWED_HOSTS = ["*"]
+# DEBUG = False
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     'dashboard',
     'debug_toolbar',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'CallRoute.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'all_apps/templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,10 +126,14 @@ LANGUAGES = [
 
 LOCALE_PATH = (
     os.path.join(BASE_DIR, 'locale'),
-
 )
+
 print(os.path.join(BASE_DIR, 'locale'))
 print('LOCALE_PATH:', LOCALE_PATH)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'ru' #для автзаполнения slug
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -140,6 +145,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "static"
+#python manage.py collectstatic
+STATICFILES_DIRS = [
+    "home/static/",
+]
 
 import os
 MEDIA_URL = 'media/'

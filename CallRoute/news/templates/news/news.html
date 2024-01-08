@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <div class="d-flex justify-content-end align-items-center py-2">
                                     <div class="me-auto">
-                                        <h5 class="m-0 fw-bold text-warning"><i class="fa-solid fa-rss me-1"></i>News</h5>
+                                        <h5 class="m-0 fw-bold text-warning"><i class="fa-solid fa-rss me-1"></i>News ({{ total_article }})</h5>
                                     </div>
                                     <div class="search me-2">
                                         <form method="POST">
@@ -204,12 +204,66 @@
 														</div>
 														<!--end::Description-->
 														<!--в обязательном порядке указываем enctype-->
-                                                        <form method="post" class="contact_form" enctype="multipart/form-data" >
+                                                        <form method="post" class="contact_form" enctype="multipart/form-data">
                                                             <input type="hidden" name="name" value="SaveArticle">
                                                             {% csrf_token %}
-                                                            {{ formArticle|crispy }}
-                                                            {{ image_form|crispy }}
-                                                            <input type="submit" class="btn btn-success" value = "Сохранить">
+                                                            <div class="card mb-3">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h5 class="mb-0">Title</h5>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            {{ formArticle.title }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h5 class="mb-0">Author</h5>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            {{ formArticle.author }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h5 class="mb-0">Anouncement</h5>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            {{ formArticle.anouncement }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h5 class="mb-0">Text</h5>
+                                                                        </div>
+                                                                        <div class="col-sm-9 text-secondary">
+                                                                            {{ formArticle.text }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <h5 class="mb-0">Category</h5>
+                                                                            {{ formArticle.category }}
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <h5 class="mb-0">Tags</h5>
+                                                                            {{ formArticle.tags }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            {{ formArticle.image_field }}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="submit" class="btn btn-success ms-auto m-1" value = "Save">
+                                                            </div>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -233,6 +287,7 @@
 
                         <!-- begin: Paginator -->
                         {% if total_article > 1 %}
+                            {% if total_article > 5 %}
                             <div class="row">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination">
@@ -254,6 +309,7 @@
                                     </ul>
                                 </nav>
                             </div>
+                            {% endif %}
                         {% endif %}
                         <!-- end: Paginator -->
 
@@ -287,7 +343,7 @@
 
                                         <div class="d-flex text-white align-items-end justify-content-end pt-3">
                                             <div class="d-flex me-auto">
-                                                <a href="/news/{{ article.get_absolute_url }}" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                                <a href="{% url 'news_detail_generic' article.pk %}" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
                                             </div>
                                             <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
                                                 <li class="d-flex align-items-center justify-content-center me-3">

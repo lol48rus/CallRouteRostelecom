@@ -281,7 +281,7 @@
 
                                         <div class="d-flex text-white align-items-end justify-content-end pt-3">
                                             <div class="d-flex me-auto">
-                                                <a href="/news/{{ article.get_absolute_url }}" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                                <a href="{% url 'news_detail_generic' article.pk %}" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
                                             </div>
                                             <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
                                                 <li class="d-flex align-items-center justify-content-center me-3">

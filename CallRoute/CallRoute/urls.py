@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('selectlanguage/', main_views.selectlanguage, name='selectlanguage'),
     path('i18n/', include('django.conf.urls.i18n')),
-
+    path('', main_views.language_redirect, name='language_redirect'),
     ]
 urlpatterns += i18n.i18n_patterns(
     path('', include('main.urls')),

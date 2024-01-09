@@ -447,4 +447,4 @@ def srch_auto(request):
             'formArticle': formArticle
             }
 
-    return render(request, 'news/srch_auto.html', context)
+    return render(request, 'news/news.html', context)

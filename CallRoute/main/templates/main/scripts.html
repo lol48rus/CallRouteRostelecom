@@ -5,7 +5,7 @@
         <script src="{% static 'main/' %}js/scripts.js"></script>
 
         <!-- begin::Для работы с DataTables -->
-        {% if request.path == '/users/' %}
+        {% if request.resolver_match.view_name  == 'users_index' %}
             <script src="{% static 'main/' %}js/jquery-3.6.0.min.js"></script>
         {% endif %}
         <!-- end::Для работы с DataTables -->

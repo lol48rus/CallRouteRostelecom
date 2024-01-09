@@ -13,7 +13,7 @@ import json
 
 from .utils import ViewCountMixin
 #generic класс
-class ArticleDetailView(ViewCountMixin, DetailView): #ViewCountMixin - миксин счетчика просмотра новостей
+class ArticleDetailView(DetailView): #ViewCountMixin - миксин счетчика просмотра новостей
     model = Article
     template_name = 'news/generic_detail.html'
     context_object_name = 'article'
@@ -328,6 +328,7 @@ def search_auto(request):
     print('вызов функции')
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         q = request.GET.get('term','')
+        print('q:', q)
         articles = Article.objects.filter(title__icontains=q)
         results =[]
         for a in articles:
@@ -351,3 +352,99 @@ def pagination(request):
 
 
 
+def srch_auto(request):
+
+    formArticle = ArticleForm()  # пустая форма
+
+    #articles = Article.objects.all()
+    selected_author = request.session.get('author_filter')
+    selected_category = request.session.get('category_filter')
+    print('selected_author:', selected_author)
+    print('selected_category:', selected_category)
+    # selected_author = 0
+    # selected_category = 0
+    selected_author = 0 if selected_author == None else selected_author
+    selected_category = 0 if selected_category == None else selected_category
+
+    author_list = User.objects.all()
+    category_list = Article.categories
+
+    # Новый обработчик
+    if request.method == "POST":
+        typename = request.POST.get('name')
+        print('typename', typename)
+        if typename == 'FilterApply': #фильтруем новости
+            selected_author = int(request.POST.get('author_filter'))
+            selected_category = int(request.POST.get('category_filter'))
+            request.session['author_filter'] = selected_author
+            request.session['category_filter'] = selected_category
+            if selected_author == 0: #выбраны все авторы
+                articles = Article.objects.all()
+            else:
+                articles = Article.objects.filter(author=selected_author)
+            if selected_category != 0: #фильтруем найденные по авторам результаты по категориям
+                articles = articles.filter(category__icontains=category_list[selected_category-1][0])
+        elif typename == 'SaveArticle': #сохраняем статью
+            form = ArticleForm(request.POST)
+            print('typename', typename)
+            if form.is_valid():
+                current_user = request.user
+                if current_user != None:  # проверка, что юзер не аноним
+                    new_article = form.save(commit=False)  # чтобы не записывалась сразу в БД
+                    new_article.author = current_user
+                    new_article.save()  # сохраняем в БД
+                    print(new_article.id)
+
+                    # сохраним картинки
+                    for img in request.FILES.getlist('image_field'):
+                        Image.objects.create(article=new_article, image=img, title=img.name)
+                    try:
+                        form.save_m2m()  # чтобы теги сохранились
+                        messages.success(request, f'Article {new_article.title} created!')
+                    except:
+                        # Удаляем созданную новость
+                        print('Новость удалена')
+
+                    return redirect('news_index')  # Перенаправляем на страницу новостей
+                    # form.save()
+        elif typename == 'SearchShow':  #отображаемые из поиска
+            print('typename:', typename)
+            search_value = request.POST.get('search')
+            print('postvalue:',request.POST.get('search'))
+            print('type_postvalue',type(request.POST.get('search')))
+            articles = Article.objects.filter(title__icontains=search_value)
+            # articles = Article.objects.filter(self=request.POST.get('value'))
+
+    else: #если страница открывается впервые
+        # selected_author = 0
+        # selected_category = 0
+        # articles = Article.objects.all()
+        articles = Article.objects.all()
+        if selected_author != 0:  # если не пустое - находим нужные ноновсти
+            articles = articles.filter(author=selected_author)
+        if selected_category != 0:  # фильтруем найденные по авторам результаты по категориям
+            articles = articles.filter(category__icontains=category_list[selected_category - 1][0])
+
+    articles = articles.order_by('-date')
+    total_article = len(articles)
+    print('total_article:', total_article)
+    p = Paginator(articles, 8)
+    page_number = request.GET.get('page')
+    page_obj = p.get_page(page_number)
+    print(page_obj)
+
+    context = {'articles': page_obj,
+            'author_list': author_list,
+            'category_list': category_list,
+            'selected_author': selected_author,
+            'selected_category': selected_category,
+            'news': news,
+            'total_article': total_article,
+            # 'today_articles': today_articles,
+            # 'currentdatetime': currentdatetime,
+            # 'mybirthdate': datetime.datetime(2004, 11, 18),
+            # 'mydate': datetime.datetime(2020, 5, 17),
+            'formArticle': formArticle
+            }
+
+    return render(request, 'news/srch_auto.html', context)

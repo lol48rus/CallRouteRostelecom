@@ -233,4 +233,12 @@ def password_update(request):
             return redirect('profile')
 
     context = {"form": form}
-    return render(request, 'users/edit_password.html' ,context)
+    return render(request, 'users/edit_password.html', context)
+
+def datatables(request):
+    title = 'datatables'
+
+    context = {'title': title
+               }
+
+    return render(request, 'users/datatables.html', context)

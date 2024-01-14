@@ -214,6 +214,217 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-3 col-lg-2 col-md-6">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <div class="card bg-custom-primary border-0 shadow light-hoverable" style="text-decoration: none;">
+                                            <!--begin::Body light-hoverable-->
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-start">
+                                                    <div>
+                                                         <i class="fas fa-route fa-2xl text-white"></i>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                        <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-end mt-1">
+                                                    <div class="me-auto"></div>
+                                                    <div></div>
+                                                    <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
+                                                </div>
+                                                <div class="d-flex justify-content-start">
+                                                    <div>
+                                                         <div class="text-white fw-bolder fs-2"><h5>SL</h5></div>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <div class="fw-bold text-white">85%</div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="text-white fw-bolder fs-2 mb-2 mt-2">SL</div>
+                                                <div class="fw-bold text-white">85%</div>-->
+                                                <div class="d-flex text-white justify-content-center">
+                                                    <div>
+                                                        <!--<canvas id="IndexLineChart" style="width: 380px; height: 150px;"></canvas>-->
+                                                        <canvas id="ChartLineCardFill"></canvas>
+                                                    </div>
+                                                    <!--<div class="d-flex me-auto">
+                                                        <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                                    </div>
+                                                    <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                        <li class="d-flex align-items-center justify-content-center me-3">
+                                                            <i class="fas fa-user fa-fw me-1"></i>
+                                                            <small></small>
+                                                        </li>
+                                                        <li class="d-flex align-items-center justify-content-center me-3">
+                                                            <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                            <small></small>
+                                                        </li>
+                                                        <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                            <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                            <small><span> d.</span> </small>
+                                                            &lt;!&ndash;  <small>3days</small> datebetween  article.date|timesince:currentdatetime&ndash;&gt;
+                                                        </li>
+                                                        <li class="d-flex align-items-center me-1">
+                                                            <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                            <small></small>
+                                                        </li>
+                                                    </ul>-->
+                                                </div>
+                                            </div>
+                                            <!--end::Body-->
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-custom-info border-0 shadow light-hoverable" style="text-decoration: none;">
+                                    <!--begin::Body light-hoverable-->
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-start">
+                                            <div>
+                                                 <i class="fas fa-route fa-2xl text-white"></i>
+
+                                            </div>
+                                                <div class="ms-auto">
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                </div>
+                                            </div>
+                                        <div class="d-flex justify-content-end mt-1">
+                                            <div class="me-auto"></div>
+                                            <div></div>
+                                            <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
+                                        </div>
+                                        <div class="text-white fw-bolder fs-2 mb-2 mt-2"></div>
+                                        <div class="fw-bold text-white"></div>
+                                        <div class="d-flex text-white align-items-end justify-content-end pt-3">
+                                            <div class="d-flex me-auto">
+                                                <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                            </div>
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small><span> d.</span> </small>
+                                                    <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
+                                                </li>
+                                                <li class="d-flex align-items-center me-1">
+                                                    <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-custom-danger border-0 shadow light-hoverable" style="text-decoration: none;">
+                                    <!--begin::Body light-hoverable-->
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-start">
+                                            <div>
+                                                 <i class="fas fa-route fa-2xl text-white"></i>
+
+                                            </div>
+                                                <div class="ms-auto">
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                </div>
+                                            </div>
+                                        <div class="d-flex justify-content-end mt-1">
+                                            <div class="me-auto"></div>
+                                            <div></div>
+                                            <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
+                                        </div>
+                                        <div class="text-white fw-bolder fs-2 mb-2 mt-2"></div>
+                                        <div class="fw-bold text-white"></div>
+                                        <div class="d-flex text-white align-items-end justify-content-end pt-3">
+                                            <div class="d-flex me-auto">
+                                                <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                            </div>
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small><span> d.</span> </small>
+                                                    <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
+                                                </li>
+                                                <li class="d-flex align-items-center me-1">
+                                                    <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-custom-success border-0 shadow light-hoverable" style="text-decoration: none;">
+                                    <!--begin::Body light-hoverable-->
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-start">
+                                            <div>
+                                                 <i class="fas fa-route fa-2xl text-white"></i>
+
+                                            </div>
+                                                <div class="ms-auto">
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                </div>
+                                            </div>
+                                        <div class="d-flex justify-content-end mt-1">
+                                            <div class="me-auto"></div>
+                                            <div></div>
+                                            <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
+                                        </div>
+                                        <div class="text-white fw-bolder fs-2 mb-2 mt-2"></div>
+                                        <div class="fw-bold text-white"></div>
+                                        <div class="d-flex text-white align-items-end justify-content-end pt-3">
+                                            <div class="d-flex me-auto">
+                                                <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                            </div>
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small><span> d.</span> </small>
+                                                    <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
+                                                </li>
+                                                <li class="d-flex align-items-center me-1">
+                                                    <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="card">
                                     <p>Stat by regions</p>
@@ -224,12 +435,154 @@
 
                         <!-- begin: DashboardContent - row cards and sl -->
                         <div class="row g-4 g-xl-8 pb-3">
-                            <div class="col-xl-4 col-lg-8 col-md-6">
-                                <div class="card w-50">
+                            <div class="col-xl-3 col-lg-2 col-md-6">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <div class="card bg-custom-primary border-0 shadow light-hoverable" style="text-decoration: none;">
+                                    <!--begin::Body light-hoverable-->
                                     <div class="card-body">
-                                        <div>
-                                            <!-- <canvas id="myChart"></canvas> -->
+                                        <div class="d-flex justify-content-start">
+                                            <div>
+                                                 <i class="fas fa-route fa-2xl text-white"></i>
+
+                                            </div>
+                                                <div class="ms-auto">
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                </div>
+                                            </div>
+                                        <div class="d-flex justify-content-end mt-1">
+                                            <div class="me-auto"></div>
+                                            <div></div>
+                                            <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
                                         </div>
+                                        <div class="text-white fw-bolder fs-2 mb-2 mt-2"></div>
+                                        <div class="fw-bold text-white"></div>
+                                        <div class="d-flex text-white align-items-end justify-content-end pt-3">
+                                            <div class="d-flex me-auto">
+                                                <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                            </div>
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small><span> d.</span> </small>
+                                                    <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
+                                                </li>
+                                                <li class="d-flex align-items-center me-1">
+                                                    <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-custom-info border-0 shadow light-hoverable" style="text-decoration: none;">
+                                    <!--begin::Body light-hoverable-->
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-start">
+                                            <div>
+                                                 <i class="fas fa-route fa-2xl text-white"></i>
+
+                                            </div>
+                                                <div class="ms-auto">
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                </div>
+                                            </div>
+                                        <div class="d-flex justify-content-end mt-1">
+                                            <div class="me-auto"></div>
+                                            <div></div>
+                                            <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
+                                        </div>
+                                        <div class="text-white fw-bolder fs-2 mb-2 mt-2"></div>
+                                        <div class="fw-bold text-white"></div>
+                                        <div class="d-flex text-white align-items-end justify-content-end pt-3">
+                                            <div class="d-flex me-auto">
+                                                <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                            </div>
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small><span> d.</span> </small>
+                                                    <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
+                                                </li>
+                                                <li class="d-flex align-items-center me-1">
+                                                    <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card bg-custom-danger border-0 shadow light-hoverable" style="text-decoration: none;">
+                                    <!--begin::Body light-hoverable-->
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-start">
+                                            <div>
+                                                 <i class="fas fa-route fa-2xl text-white"></i>
+
+                                            </div>
+                                                <div class="ms-auto">
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded me-1"><i class="fa-regular fa-bookmark"></i></a>
+                                                    <a href="#" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-pencil-square"></i></a>
+                                                </div>
+                                            </div>
+                                        <div class="d-flex justify-content-end mt-1">
+                                            <div class="me-auto"></div>
+                                            <div></div>
+                                            <div><a href="/news/delete/{{ article.id }}" type="button" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary rounded"><i class="bi bi-trash"></i></a></div>
+                                        </div>
+                                        <div class="text-white fw-bolder fs-2 mb-2 mt-2"></div>
+                                        <div class="fw-bold text-white"></div>
+                                        <div class="d-flex text-white align-items-end justify-content-end pt-3">
+                                            <div class="d-flex me-auto">
+                                                <a href="#" type="button" class="btn btn-sm btn-light rounded shadow"><span class="text-muted fw-bolder">Show</span></a>
+                                            </div>
+                                            <ul class="d-flex align-items-center justify-content-center list-unstyled mt-auto">
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fas fa-user fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-center me-3">
+                                                    <i class="fa-solid fa-eye fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                                <li class="d-lg-none d-xxl-inline-block d-flex align-items-center justify-content-center me-2">
+                                                    <i class="fas fa-calendar-day fa-fw me-1"></i>
+                                                    <small><span> d.</span> </small>
+                                                    <!--  <small>3days</small> datebetween  article.date|timesince:currentdatetime-->
+                                                </li>
+                                                <li class="d-flex align-items-center me-1">
+                                                    <i class="fa-regular fa-comment fa-fw me-1"></i>
+                                                    <small></small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
                                     </div>
                                 </div>
                             </div>

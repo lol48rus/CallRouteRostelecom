@@ -18,10 +18,11 @@ def register(request):
         if form.is_valid():
             print('форма валид')
             user = form.save() #появляется новый юзер
-
+            print('account_type:', request.POST['account_type'])
             category = request.POST['account_type']
             if category == 'author':
-                group = Group.objects.get(name='Actions Required')
+                #group = Group.objects.get(name='Actions Required')
+                group = Group.objects.get(name='Authors')
                 user.groups.add(group)
             else:
                 group = Group.objects.get(name='Reader')
